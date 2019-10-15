@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Scorer
+
+  Created by Nobuhiro Harada on 2019/10/11.
+  Copyright © 2019 Nobuhiro Harada. All rights reserved.
+*/
+
+// 設定 - アクションシート
+"setting_title" = "設定";
+"setting_subtitle" = "自動ブザー設定、リセットを行います。";
+"setting_auto_buzzer" = "終了時に自動でブザーを鳴らす";
+"setting_reset" = "リセット";
+"setting_cancel" = "キャンセル";
+
+// チーム名 編集
+"team_a_name_edit" = "ホームチーム名 編集";
+"team_b_name_edit" = "ゲストチーム名 編集";
+
+// チーム名 プレイスホルダー
+"team_name" = "チーム名";
+
+// チームスコア 編集
+"team_a_score_edit" = "ホームチームスコア 編集";
+"team_b_score_edit" = "ゲストチームスコア 編集";
+
+// アプリバージョン
+"app_version" = "バージョン";

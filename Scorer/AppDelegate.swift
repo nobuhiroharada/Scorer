@@ -1,0 +1,61 @@
+//
+//  AppDelegate.swift
+//  Scorer
+//
+//  Created by Nobuhiro Harada on 2019/10/11.
+//  Copyright © 2019 Nobuhiro Harada. All rights reserved.
+//
+
+import UIKit
+
+let userdefaults = UserDefaults.standard
+let BUZEER_AUTO_BEEP: String = "buzzer_auto_beep"
+let TEAM_A: String  = "team_a"
+let TEAM_B: String  = "team_b"
+let SCORE_A: String = "score_a"
+let SCORE_B: String = "score_b"
+
+var isLandscape: Bool {
+    return UIApplication.shared.windows
+        .first?
+        .windowScene?
+        .interfaceOrientation
+        .isLandscape ?? false
+}
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+    private(set) lazy var viewController = ViewController()
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        if (userdefaults.object(forKey: BUZEER_AUTO_BEEP) == nil) {
+            userdefaults.set(false, forKey: BUZEER_AUTO_BEEP)
+        }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
+        
+        return true
+    }
+
+    // MARK: UISceneSession Lifecycle
+
+//    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+//        // Called when a new scene session is being created.
+//        // Use this method to select a configuration to create the new scene with.
+//        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+//    }
+//
+//    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+//        // Called when the user discards a scene session.
+//        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+//        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+//    }
+
+
+}
+
