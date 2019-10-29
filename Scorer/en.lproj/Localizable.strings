@@ -12,6 +12,13 @@
 "setting_auto_buzzer" = "When time up, auto buzzer";
 "setting_reset" = "Reset";
 "setting_cancel" = "Cancel";
+"setting_share" = "Share";
+"setting_team_name_a" = "Edit team name（left）";
+"setting_team_name_b" = "Edit team name（right）";
+
+// チーム名前
+"team_name_a" = "HOME";
+"team_name_b" = "GUEST";
 
 // チーム名 編集
 "team_a_name_edit" = "Edit HOME name";

@@ -28,13 +28,44 @@ class AlertDialog: UIAlertController {
                 
                 for textField in textFields {
                     teamLabel.text = textField.text
-                    if team == TEAM_A {
-                        userdefaults.set(textField.text, forKey: TEAM_A)
+                    if team == TEAM_NAME_A {
+                        userdefaults.set(textField.text, forKey: TEAM_NAME_A)
                     }
-                    else if team == TEAM_B {
-                        userdefaults.set(textField.text, forKey: TEAM_B)
+                    else if team == TEAM_NAME_B {
+                        userdefaults.set(textField.text, forKey: TEAM_NAME_B)
                     }
                 }
+            }
+        }
+        
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "TEAM NAME"
+            textField.text = teamLabel.text
+        })
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    class func showTeamNameEditFromSettingVC(title: String, team: String, teamLabel: TeamLabel, tableView: UITableView, indexPath: IndexPath, viewController: UIViewController) {
+        
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+            if let textFields = alert.textFields {
+                
+                for textField in textFields {
+                    teamLabel.text = textField.text
+                    if team == TEAM_NAME_A {
+                        userdefaults.set(textField.text, forKey: TEAM_NAME_A)
+                    }
+                    else if team == TEAM_NAME_B {
+                        userdefaults.set(textField.text, forKey: TEAM_NAME_B)
+                    }
+                }
+                tableView.reloadRows(at: [indexPath], with: .none)
             }
         }
         
@@ -60,15 +91,15 @@ class AlertDialog: UIAlertController {
                     
                     if let textFieldText = textField.text {
                         if !textFieldText.isEmpty {
-                            if team == TEAM_A {
+                            if team == TEAM_NAME_A {
                                 scoreView.scoreLabelA.text = textField.text
                                 scoreView.scoreA = Int(textFieldText)!
-                                userdefaults.set(textField.text, forKey: TEAM_A)
+                                userdefaults.set(textField.text, forKey: TEAM_SCORE_A)
                             }
-                            else if team == TEAM_B {
+                            else if team == TEAM_NAME_B {
                                 scoreView.scoreLabelB.text = textField.text
                                 scoreView.scoreB = Int(textFieldText)!
-                                userdefaults.set(textField.text, forKey: TEAM_B)
+                                userdefaults.set(textField.text, forKey: TEAM_SCORE_B)
                             }
                         }
                     }
@@ -84,10 +115,10 @@ class AlertDialog: UIAlertController {
         
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
             textField.placeholder = String(0)
-            if team == TEAM_A {
+            if team == TEAM_NAME_A {
                 textField.text = scoreView.scoreLabelA.text
             }
-            else if team == TEAM_B {
+            else if team == TEAM_NAME_B {
                 textField.text = scoreView.scoreLabelB.text
             }
             

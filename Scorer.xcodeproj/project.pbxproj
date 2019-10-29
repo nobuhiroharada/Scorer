@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E56A46A62351897C00B127E2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A46A52351897C00B127E2 /* SettingViewController.swift */; };
 		E5AF742C234FBD620063726B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF742B234FBD620063726B /* AppDelegate.swift */; };
-		E5AF7430234FBD620063726B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF742F234FBD620063726B /* ViewController.swift */; };
+		E5AF7430234FBD620063726B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF742F234FBD620063726B /* MainViewController.swift */; };
 		E5AF7435234FBD650063726B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5AF7434234FBD650063726B /* Assets.xcassets */; };
 		E5AF7438234FBD650063726B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5AF7436234FBD650063726B /* LaunchScreen.storyboard */; };
 		E5AF7440234FC3A30063726B /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF743F234FC3A30063726B /* ScoreView.swift */; };
@@ -25,13 +25,25 @@
 		E5AF7458234FCC1A0063726B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5AF745A234FCC1A0063726B /* Localizable.strings */; };
 		E5AF745D2350FD840063726B /* PossesionImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF745C2350FD840063726B /* PossesionImageView.swift */; };
 		E5AF745F2350FD930063726B /* FoulCountImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF745E2350FD920063726B /* FoulCountImageView.swift */; };
+		E5D0DA61236382170019274C /* ScorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA60236382170019274C /* ScorerUITests.swift */; };
+		E5D0DA692364F1130019274C /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA682364F1130019274C /* SettingButton.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5D0DA63236382170019274C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5AF7420234FBD620063726B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5AF7427234FBD620063726B;
+			remoteInfo = Scorer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E56A46A52351897C00B127E2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E5AF7428234FBD620063726B /* Scorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AF742B234FBD620063726B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5AF742F234FBD620063726B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E5AF742F234FBD620063726B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E5AF7434234FBD650063726B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5AF7437234FBD650063726B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5AF7439234FBD650063726B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,10 +62,21 @@
 		E5AF745B234FCC210063726B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E5AF745C2350FD840063726B /* PossesionImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PossesionImageView.swift; sourceTree = "<group>"; };
 		E5AF745E2350FD920063726B /* FoulCountImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoulCountImageView.swift; sourceTree = "<group>"; };
+		E5D0DA5E236382170019274C /* ScorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D0DA60236382170019274C /* ScorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorerUITests.swift; sourceTree = "<group>"; };
+		E5D0DA62236382170019274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D0DA682364F1130019274C /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E5AF7425234FBD620063726B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0DA5B236382170019274C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E5AF742A234FBD620063726B /* Scorer */,
+				E5D0DA5F236382170019274C /* ScorerUITests */,
 				E5AF7429234FBD620063726B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				E5AF7428234FBD620063726B /* Scorer.app */,
+				E5D0DA5E236382170019274C /* ScorerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				E5AF742B234FBD620063726B /* AppDelegate.swift */,
-				E5AF742F234FBD620063726B /* ViewController.swift */,
+				E5AF742F234FBD620063726B /* MainViewController.swift */,
 				E56A46A52351897C00B127E2 /* SettingViewController.swift */,
 				E5AF743F234FC3A30063726B /* ScoreView.swift */,
 				E5AF7441234FC3C80063726B /* Components */,
@@ -105,6 +130,7 @@
 				E5AF7444234FC4080063726B /* ScoreLabel.swift */,
 				E5AF7446234FC4140063726B /* ScoreSmallButton.swift */,
 				E5AF7448234FC4F90063726B /* BuzzerButton.swift */,
+				E5D0DA682364F1130019274C /* SettingButton.swift */,
 				E5AF745C2350FD840063726B /* PossesionImageView.swift */,
 				E5AF745E2350FD920063726B /* FoulCountImageView.swift */,
 				E5AF744E234FCA7C0063726B /* AlertDialog.swift */,
@@ -119,6 +145,15 @@
 				E5AF7452234FCB260063726B /* UIImage+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E5D0DA5F236382170019274C /* ScorerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0DA60236382170019274C /* ScorerUITests.swift */,
+				E5D0DA62236382170019274C /* Info.plist */,
+			);
+			path = ScorerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +176,24 @@
 			productReference = E5AF7428234FBD620063726B /* Scorer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E5D0DA5D236382170019274C /* ScorerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D0DA67236382170019274C /* Build configuration list for PBXNativeTarget "ScorerUITests" */;
+			buildPhases = (
+				E5D0DA5A236382170019274C /* Sources */,
+				E5D0DA5B236382170019274C /* Frameworks */,
+				E5D0DA5C236382170019274C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5D0DA64236382170019274C /* PBXTargetDependency */,
+			);
+			name = ScorerUITests;
+			productName = ScorerUITests;
+			productReference = E5D0DA5E236382170019274C /* ScorerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -153,6 +206,10 @@
 				TargetAttributes = {
 					E5AF7427234FBD620063726B = {
 						CreatedOnToolsVersion = 11.0;
+					};
+					E5D0DA5D236382170019274C = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = E5AF7427234FBD620063726B;
 					};
 				};
 			};
@@ -171,6 +228,7 @@
 			projectRoot = "";
 			targets = (
 				E5AF7427234FBD620063726B /* Scorer */,
+				E5D0DA5D236382170019274C /* ScorerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -188,6 +246,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5D0DA5C236382170019274C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -195,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5AF7430234FBD620063726B /* ViewController.swift in Sources */,
+				E5AF7430234FBD620063726B /* MainViewController.swift in Sources */,
 				E5AF7453234FCB260063726B /* String+.swift in Sources */,
 				E5AF745D2350FD840063726B /* PossesionImageView.swift in Sources */,
 				E56A46A62351897C00B127E2 /* SettingViewController.swift in Sources */,
@@ -207,11 +272,28 @@
 				E5AF745F2350FD930063726B /* FoulCountImageView.swift in Sources */,
 				E5AF7454234FCB260063726B /* UIImage+.swift in Sources */,
 				E5AF7449234FC4F90063726B /* BuzzerButton.swift in Sources */,
+				E5D0DA692364F1130019274C /* SettingButton.swift in Sources */,
 				E5AF7440234FC3A30063726B /* ScoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5D0DA5A236382170019274C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D0DA61236382170019274C /* ScorerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5D0DA64236382170019274C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5AF7427234FBD620063726B /* Scorer */;
+			targetProxy = E5D0DA63236382170019274C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E5AF7436234FBD650063726B /* LaunchScreen.storyboard */ = {
@@ -362,7 +444,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.scorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -381,11 +463,49 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.scorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E5D0DA65236382170019274C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9QP98K44Z;
+				INFOPLIST_FILE = ScorerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.ScorerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Scorer;
+			};
+			name = Debug;
+		};
+		E5D0DA66236382170019274C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9QP98K44Z;
+				INFOPLIST_FILE = ScorerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.ScorerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Scorer;
 			};
 			name = Release;
 		};
@@ -406,6 +526,15 @@
 			buildConfigurations = (
 				E5AF743D234FBD650063726B /* Debug */,
 				E5AF743E234FBD650063726B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5D0DA67236382170019274C /* Build configuration list for PBXNativeTarget "ScorerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D0DA65236382170019274C /* Debug */,
+				E5D0DA66236382170019274C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

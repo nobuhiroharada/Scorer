@@ -12,6 +12,13 @@
 "setting_auto_buzzer" = "終了時に自動でブザーを鳴らす";
 "setting_reset" = "リセット";
 "setting_cancel" = "キャンセル";
+"setting_share" = "シェア";
+"setting_team_name_a" = "チーム名編集（左）";
+"setting_team_name_b" = "チーム名編集（右）";
+
+// チーム名前
+"team_name_a" = "ホーム";
+"team_name_b" = "ゲスト";
 
 // チーム名 編集
 "team_a_name_edit" = "ホームチーム名 編集";

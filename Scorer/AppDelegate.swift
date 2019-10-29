@@ -10,10 +10,10 @@ import UIKit
 
 let userdefaults = UserDefaults.standard
 let BUZEER_AUTO_BEEP: String = "buzzer_auto_beep"
-let TEAM_A: String  = "team_a"
-let TEAM_B: String  = "team_b"
-let SCORE_A: String = "score_a"
-let SCORE_B: String = "score_b"
+let TEAM_NAME_A: String  = "team_name_a"
+let TEAM_NAME_B: String  = "team_name_b"
+let TEAM_SCORE_A: String = "team_score_a"
+let TEAM_SCORE_B: String = "team_score_b"
 
 var isLandscape: Bool {
     return UIApplication.shared.windows
@@ -27,7 +27,7 @@ var isLandscape: Bool {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private(set) lazy var viewController = ViewController()
+    private(set) lazy var viewController = MainViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

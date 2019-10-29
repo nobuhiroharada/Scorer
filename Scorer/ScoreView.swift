@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScoreView: UIView {
+final class ScoreView: UIView {
     
     // スコアA
     var scoreA: Int = 0
@@ -26,6 +26,9 @@ class ScoreView: UIView {
     
     // ブザー
     var buzzerButton: BuzzerButton
+    
+    // 設定ボタン
+    var settingButton: SettingButton
     
     // ポゼッション
     var possessionImageA: PossesionImageView
@@ -50,40 +53,65 @@ class ScoreView: UIView {
     
     override init(frame: CGRect) {
         teamLabelA = TeamLabel()
-        teamLabelA.text = "HOME"
+        if let teamNameA = userdefaults.string(forKey: TEAM_NAME_A) {
+            teamLabelA.text = teamNameA
+        } else {
+            teamLabelA.text = "team_name_a".localized
+        }
+        
+        teamLabelA.accessibilityIdentifier = "teamLabelA"
         
         teamLabelB = TeamLabel()
-        teamLabelB.text = "GUEST"
+        if let teamNameB = userdefaults.string(forKey: TEAM_NAME_B) {
+            teamLabelB.text = teamNameB
+        } else {
+            teamLabelB.text = "team_name_b".localized
+        }
+        
+        teamLabelB.accessibilityIdentifier = "teamLabelB"
         
         scoreLabelA = ScoreLabel()
+        scoreLabelA.accessibilityIdentifier = "scoreLabelA"
+        
         scoreLabelB = ScoreLabel()
+        scoreLabelB.accessibilityIdentifier = "scoreLabelB"
         
         let upButtonImage = UIImage(named:"up-button")!
         let downButtonImage = UIImage(named:"down-button")!
         
         scoreMinusButtonA = ScoreSmallButton()
         scoreMinusButtonA.setImage(downButtonImage, for: .normal)
+        scoreMinusButtonA.accessibilityIdentifier = "scoreMinusButtonA"
         
         scorePlusButtonA = ScoreSmallButton()
         scorePlusButtonA.setImage(upButtonImage, for: .normal)
+        scorePlusButtonA.accessibilityIdentifier = "scorePlusButtonA"
         
         scoreMinusButtonB = ScoreSmallButton()
         scoreMinusButtonB.setImage(downButtonImage, for: .normal)
+        scoreMinusButtonB.accessibilityIdentifier = "scoreMinusButtonB"
         
         scorePlusButtonB = ScoreSmallButton()
         scorePlusButtonB.setImage(upButtonImage, for: .normal)
+        scorePlusButtonB.accessibilityIdentifier = "scorePlusButtonB"
         
         buzzerButton = BuzzerButton()
+        buzzerButton.accessibilityIdentifier = "buzzerButton"
+        
+        settingButton = SettingButton()
+        settingButton.accessibilityIdentifier = "settingButton"
         
         possessionImageA = PossesionImageView(frame: CGRect.zero)
         if let imageA = UIImage(named: "posses-a-active") {
             possessionImageA.image = imageA
         }
+        possessionImageA.accessibilityIdentifier = "possessionImageA"
         
         possessionImageB = PossesionImageView(frame: CGRect.zero)
         if let imageB = UIImage(named: "posses-b-inactive") {
             possessionImageB.image = imageB
         }
+        possessionImageB.accessibilityIdentifier = "possessionImageB"
         
         foulCountImageA1 = FoulCountImageView(frame: CGRect.zero)
         foulCountImageA2 = FoulCountImageView(frame: CGRect.zero)
@@ -97,6 +125,18 @@ class ScoreView: UIView {
         foulCountImageB4 = FoulCountImageView(frame: CGRect.zero)
         foulCountImageB5 = FoulCountImageView(frame: CGRect.zero)
         
+        foulCountImageA1.accessibilityIdentifier = "foulCountImageA1"
+        foulCountImageA2.accessibilityIdentifier = "foulCountImageA2"
+        foulCountImageA3.accessibilityIdentifier = "foulCountImageA3"
+        foulCountImageA4.accessibilityIdentifier = "foulCountImageA4"
+        foulCountImageA5.accessibilityIdentifier = "foulCountImageA5"
+        
+        foulCountImageB1.accessibilityIdentifier = "foulCountImageB1"
+        foulCountImageB2.accessibilityIdentifier = "foulCountImageB2"
+        foulCountImageB3.accessibilityIdentifier = "foulCountImageB3"
+        foulCountImageB4.accessibilityIdentifier = "foulCountImageB4"
+        foulCountImageB5.accessibilityIdentifier = "foulCountImageB5"
+        
         super.init(frame: frame)
         
         self.addSubview(teamLabelA)
@@ -108,6 +148,7 @@ class ScoreView: UIView {
         self.addSubview(scoreMinusButtonB)
         self.addSubview(scorePlusButtonB)
         self.addSubview(buzzerButton)
+        self.addSubview(settingButton)
         self.addSubview(possessionImageA)
         self.addSubview(possessionImageB)
         self.addSubview(foulCountImageA1)
@@ -204,6 +245,8 @@ class ScoreView: UIView {
         
         buzzerButton.center = CGPoint(x: frame.width*(1/2), y: scoreButtonY)
         
+        settingButton.center = CGPoint(x: frame.width*(23/24), y: frame.height*(7/8))
+        
         possessionImageA.center = CGPoint(x: frame.width*(1/12),
                                           y: teamNameY)
         
@@ -237,11 +280,11 @@ class ScoreView: UIView {
     func reset() {
         scoreA = 0
         scoreLabelA.text = "00"
-        teamLabelA.text = "HOME"
+        teamLabelA.text = "team_name_a".localized
         
         scoreB = 0
         scoreLabelB.text = "00"
-        teamLabelB.text = "GUEST"
+        teamLabelB.text = "team_name_b".localized
         
         isPossessionA = true
         possessionImageA.image = UIImage(named: "posses-a-active")

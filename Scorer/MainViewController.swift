@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     let label = UILabel()
     var scoreView  = ScoreView()
@@ -67,71 +67,70 @@ class ViewController: UIViewController {
     }
     
     func addButtonAction() {
-        scoreView.scoreMinusButtonA.addTarget(self, action: #selector(ViewController.scoreMinusButtonA_touched), for: .touchUpInside)
+        scoreView.scoreMinusButtonA.addTarget(self, action: #selector(MainViewController.scoreMinusButtonA_touched), for: .touchUpInside)
         
-        scoreView.scorePlusButtonA.addTarget(self, action: #selector(ViewController.scorePlusButtonA_touched), for: .touchUpInside)
+        scoreView.scorePlusButtonA.addTarget(self, action: #selector(MainViewController.scorePlusButtonA_touched), for: .touchUpInside)
         
-        scoreView.scoreMinusButtonB.addTarget(self, action: #selector(ViewController.scoreMinusButtonB_touched), for: .touchUpInside)
+        scoreView.scoreMinusButtonB.addTarget(self, action: #selector(MainViewController.scoreMinusButtonB_touched), for: .touchUpInside)
         
-        scoreView.scorePlusButtonB.addTarget(self, action: #selector(ViewController.scorePlusButtonB_touched), for: .touchUpInside)
+        scoreView.scorePlusButtonB.addTarget(self, action: #selector(MainViewController.scorePlusButtonB_touched), for: .touchUpInside)
         
-        scoreView.buzzerButton.addTarget(self, action: #selector(ViewController.buzzerButton_touchDown), for: .touchDown)
+        scoreView.buzzerButton.addTarget(self, action: #selector(MainViewController.buzzerButton_touchDown), for: .touchDown)
         
-        scoreView.buzzerButton.addTarget(self, action: #selector(ViewController.buzzerButton_touchUp), for: [.touchUpInside, .touchUpOutside])
+        scoreView.buzzerButton.addTarget(self, action: #selector(MainViewController.buzzerButton_touchUp), for: [.touchUpInside, .touchUpOutside])
+        
+        scoreView.settingButton.addTarget(self, action: #selector(MainViewController.settingButton_touched), for: .touchUpInside)
     }
     
     func addGesturerecognizer() {
-        let tapTeamA = UITapGestureRecognizer(target: self, action: #selector(ViewController.teamLabelA_tapped))
+        let tapTeamA = UITapGestureRecognizer(target: self, action: #selector(MainViewController.teamLabelA_tapped))
         scoreView.teamLabelA.addGestureRecognizer(tapTeamA)
         
-        let tapTeamB = UITapGestureRecognizer(target: self, action: #selector(ViewController.teamLabelB_tapped))
+        let tapTeamB = UITapGestureRecognizer(target: self, action: #selector(MainViewController.teamLabelB_tapped))
         scoreView.teamLabelB.addGestureRecognizer(tapTeamB)
 
-        let tapScoreA = UITapGestureRecognizer(target: self, action: #selector(ViewController.scoreLabelA_tapped))
+        let tapScoreA = UITapGestureRecognizer(target: self, action: #selector(MainViewController.scoreLabelA_tapped))
         scoreView.scoreLabelA.addGestureRecognizer(tapScoreA)
         
-        let tapScoreB = UITapGestureRecognizer(target: self, action: #selector(ViewController.scoreLabelB_tapped))
+        let tapScoreB = UITapGestureRecognizer(target: self, action: #selector(MainViewController.scoreLabelB_tapped))
         scoreView.scoreLabelB.addGestureRecognizer(tapScoreB)
         
-        let tapPossessionA = UITapGestureRecognizer(target: self, action: #selector(ViewController.possessionA_tapped))
+        let tapPossessionA = UITapGestureRecognizer(target: self, action: #selector(MainViewController.possessionA_tapped))
         scoreView.possessionImageA.addGestureRecognizer(tapPossessionA)
         
-        let tapPossessionB = UITapGestureRecognizer(target: self, action: #selector(ViewController.possessionB_tapped))
+        let tapPossessionB = UITapGestureRecognizer(target: self, action: #selector(MainViewController.possessionB_tapped))
         scoreView.possessionImageB.addGestureRecognizer(tapPossessionB)
         
-        let tapFoulCountA1 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountA1_tapped))
+        let tapFoulCountA1 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA1_tapped))
         scoreView.foulCountImageA1.addGestureRecognizer(tapFoulCountA1)
         
-        let tapFoulCountA2 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountA2_tapped))
+        let tapFoulCountA2 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA2_tapped))
         scoreView.foulCountImageA2.addGestureRecognizer(tapFoulCountA2)
         
-        let tapFoulCountA3 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountA3_tapped))
+        let tapFoulCountA3 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA3_tapped))
         scoreView.foulCountImageA3.addGestureRecognizer(tapFoulCountA3)
         
-        let tapFoulCountA4 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountA4_tapped))
+        let tapFoulCountA4 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA4_tapped))
         scoreView.foulCountImageA4.addGestureRecognizer(tapFoulCountA4)
         
-        let tapFoulCountA5 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountA5_tapped))
+        let tapFoulCountA5 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA5_tapped))
         scoreView.foulCountImageA5.addGestureRecognizer(tapFoulCountA5)
         
-        let tapFoulCountB1 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountB1_tapped))
+        let tapFoulCountB1 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB1_tapped))
         scoreView.foulCountImageB1.addGestureRecognizer(tapFoulCountB1)
         
-        let tapFoulCountB2 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountB2_tapped))
+        let tapFoulCountB2 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB2_tapped))
         scoreView.foulCountImageB2.addGestureRecognizer(tapFoulCountB2)
         
-        let tapFoulCountB3 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountB3_tapped))
+        let tapFoulCountB3 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB3_tapped))
         scoreView.foulCountImageB3.addGestureRecognizer(tapFoulCountB3)
         
-        let tapFoulCountB4 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountB4_tapped))
+        let tapFoulCountB4 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB4_tapped))
         scoreView.foulCountImageB4.addGestureRecognizer(tapFoulCountB4)
         
-        let tapFoulCountB5 = UITapGestureRecognizer(target: self, action: #selector(ViewController.foulCountB5_tapped))
+        let tapFoulCountB5 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB5_tapped))
         scoreView.foulCountImageB5.addGestureRecognizer(tapFoulCountB5)
         
-        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.upSwipe))
-        upSwipe.direction = .up
-        self.view.addGestureRecognizer(upSwipe)
     }
 
     // MARK: - addButtonAction
@@ -139,7 +138,7 @@ class ViewController: UIViewController {
         if scoreView.scoreA > 0 {
             scoreView.scoreA -= 1
             scoreView.scoreLabelA.text = String(scoreView.scoreA)
-            userdefaults.set(scoreView.scoreA, forKey: SCORE_A)
+            userdefaults.set(scoreView.scoreA, forKey: TEAM_SCORE_A)
         }
     }
     
@@ -147,7 +146,7 @@ class ViewController: UIViewController {
         if scoreView.scoreA < 1000 {
             scoreView.scoreA += 1
             scoreView.scoreLabelA.text = String(scoreView.scoreA)
-            userdefaults.set(scoreView.scoreA, forKey: SCORE_A)
+            userdefaults.set(scoreView.scoreA, forKey: TEAM_SCORE_A)
         }
     }
     
@@ -155,7 +154,7 @@ class ViewController: UIViewController {
         if scoreView.scoreB > 0 {
             scoreView.scoreB -= 1
             scoreView.scoreLabelB.text = String(scoreView.scoreB)
-            userdefaults.set(scoreView.scoreB, forKey: SCORE_B)
+            userdefaults.set(scoreView.scoreB, forKey: TEAM_SCORE_B)
         }
     }
     
@@ -163,25 +162,31 @@ class ViewController: UIViewController {
         if scoreView.scoreB < 1000 {
             scoreView.scoreB += 1
             scoreView.scoreLabelB.text = String(scoreView.scoreB)
-            userdefaults.set(scoreView.scoreB, forKey: SCORE_B)
+            userdefaults.set(scoreView.scoreB, forKey: TEAM_SCORE_B)
         }
+    }
+    
+    @objc func settingButton_touched(_ sender: UIButton) {
+        let settingViewController = SettingViewController()
+        settingViewController.scoreView = self.scoreView
+        self.present(settingViewController, animated: true, completion: nil)
     }
     
     // MARK: - addGesturerecognizer
     @objc func teamLabelA_tapped(_ sender: UITapGestureRecognizer) {
-        AlertDialog.showTeamNameEdit(title: "team_a_name_edit".localized, team: TEAM_A, teamLabel: scoreView.teamLabelA, viewController: self)
+        AlertDialog.showTeamNameEdit(title: "team_a_name_edit".localized, team: TEAM_NAME_A, teamLabel: scoreView.teamLabelA, viewController: self)
     }
     
     @objc func teamLabelB_tapped(_ sender: UITapGestureRecognizer) {
-        AlertDialog.showTeamNameEdit(title: "team_b_name_edit".localized, team: TEAM_B, teamLabel: scoreView.teamLabelB, viewController: self)
+        AlertDialog.showTeamNameEdit(title: "team_b_name_edit".localized, team: TEAM_NAME_B, teamLabel: scoreView.teamLabelB, viewController: self)
     }
     
     @objc func scoreLabelA_tapped(_ sender: UITapGestureRecognizer) {
-        AlertDialog.showScoreEdit(title: "team_a_score_edit".localized, team: TEAM_A, scoreView: scoreView, viewController: self)
+        AlertDialog.showScoreEdit(title: "team_a_score_edit".localized, team: TEAM_NAME_A, scoreView: scoreView, viewController: self)
     }
     
     @objc func scoreLabelB_tapped(_ sender: UITapGestureRecognizer) {
-        AlertDialog.showScoreEdit(title: "team_b_score_edit".localized, team: TEAM_B, scoreView: scoreView, viewController: self)
+        AlertDialog.showScoreEdit(title: "team_b_score_edit".localized, team: TEAM_NAME_B, scoreView: scoreView, viewController: self)
     }
     
     @objc func buzzerButton_touchDown(_ sender: UIButton) {
@@ -243,16 +248,9 @@ class ViewController: UIViewController {
         scoreView.tapFoulCountB5()
     }
     
-    @objc func upSwipe() {
-//        AlertDialog.showSettingActionSheet(scoreView,viewController: self)
-        let settingViewController = SettingViewController()
-        settingViewController.scoreView = self.scoreView
-        self.present(settingViewController, animated: true, completion: nil)
-    }
-    
 }
 
-extension ViewController: AVAudioPlayerDelegate {
+extension MainViewController: AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         
