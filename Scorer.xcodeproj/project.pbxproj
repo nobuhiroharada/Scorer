@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4B32AC507C5D540AC044BCD /* Pods_Scorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C550301D8CB428555AA020B /* Pods_Scorer.framework */; };
 		E56A46A62351897C00B127E2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A46A52351897C00B127E2 /* SettingViewController.swift */; };
+		E59C587411C9271F4C0EAC4F /* Pods_Scorer_ScorerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EB5746D6EFD92002550F1A /* Pods_Scorer_ScorerUITests.framework */; };
 		E5AF742C234FBD620063726B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF742B234FBD620063726B /* AppDelegate.swift */; };
 		E5AF7430234FBD620063726B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF742F234FBD620063726B /* MainViewController.swift */; };
 		E5AF7435234FBD650063726B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5AF7434234FBD650063726B /* Assets.xcassets */; };
@@ -19,7 +21,6 @@
 		E5AF7449234FC4F90063726B /* BuzzerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF7448234FC4F90063726B /* BuzzerButton.swift */; };
 		E5AF744C234FC5160063726B /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5AF744A234FC5160063726B /* buzzer.mp3 */; };
 		E5AF744D234FC5160063726B /* Digital Dismay.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5AF744B234FC5160063726B /* Digital Dismay.otf */; };
-		E5AF744F234FCA7C0063726B /* AlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF744E234FCA7C0063726B /* AlertDialog.swift */; };
 		E5AF7453234FCB260063726B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF7451234FCB260063726B /* String+.swift */; };
 		E5AF7454234FCB260063726B /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF7452234FCB260063726B /* UIImage+.swift */; };
 		E5AF7458234FCC1A0063726B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5AF745A234FCC1A0063726B /* Localizable.strings */; };
@@ -27,6 +28,7 @@
 		E5AF745F2350FD930063726B /* FoulCountImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF745E2350FD920063726B /* FoulCountImageView.swift */; };
 		E5D0DA61236382170019274C /* ScorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA60236382170019274C /* ScorerUITests.swift */; };
 		E5D0DA692364F1130019274C /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA682364F1130019274C /* SettingButton.swift */; };
+		E5D0DA7723698EB20019274C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA7623698EB20019274C /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		105D82D080E43865A79878DC /* Pods-Scorer-ScorerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scorer-ScorerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Scorer-ScorerUITests/Pods-Scorer-ScorerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		26C50D774918C45E983F5F1D /* Pods-Scorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scorer.release.xcconfig"; path = "Target Support Files/Pods-Scorer/Pods-Scorer.release.xcconfig"; sourceTree = "<group>"; };
+		3C550301D8CB428555AA020B /* Pods_Scorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AB72860B9A9B39CF2CAE07E /* Pods-Scorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scorer.debug.xcconfig"; path = "Target Support Files/Pods-Scorer/Pods-Scorer.debug.xcconfig"; sourceTree = "<group>"; };
+		A2EB5746D6EFD92002550F1A /* Pods_Scorer_ScorerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scorer_ScorerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC186A0DC695BEC0805EC696 /* Pods-Scorer-ScorerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scorer-ScorerUITests.release.xcconfig"; path = "Target Support Files/Pods-Scorer-ScorerUITests/Pods-Scorer-ScorerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E56A46A52351897C00B127E2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E5AF7428234FBD620063726B /* Scorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AF742B234FBD620063726B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +62,6 @@
 		E5AF7448234FC4F90063726B /* BuzzerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuzzerButton.swift; sourceTree = "<group>"; };
 		E5AF744A234FC5160063726B /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
 		E5AF744B234FC5160063726B /* Digital Dismay.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Digital Dismay.otf"; sourceTree = "<group>"; };
-		E5AF744E234FCA7C0063726B /* AlertDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDialog.swift; sourceTree = "<group>"; };
 		E5AF7451234FCB260063726B /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		E5AF7452234FCB260063726B /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		E5AF7455234FCBC90063726B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -66,6 +73,7 @@
 		E5D0DA60236382170019274C /* ScorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorerUITests.swift; sourceTree = "<group>"; };
 		E5D0DA62236382170019274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D0DA682364F1130019274C /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		E5D0DA7623698EB20019274C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B32AC507C5D540AC044BCD /* Pods_Scorer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,18 +89,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59C587411C9271F4C0EAC4F /* Pods_Scorer_ScorerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF1E954D413BFAEA99E7C972 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4AB72860B9A9B39CF2CAE07E /* Pods-Scorer.debug.xcconfig */,
+				26C50D774918C45E983F5F1D /* Pods-Scorer.release.xcconfig */,
+				105D82D080E43865A79878DC /* Pods-Scorer-ScorerUITests.debug.xcconfig */,
+				BC186A0DC695BEC0805EC696 /* Pods-Scorer-ScorerUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E5AF741F234FBD620063726B = {
 			isa = PBXGroup;
 			children = (
 				E5AF742A234FBD620063726B /* Scorer */,
 				E5D0DA5F236382170019274C /* ScorerUITests */,
 				E5AF7429234FBD620063726B /* Products */,
+				BF1E954D413BFAEA99E7C972 /* Pods */,
+				E8C1399F959DA01F09FE2AEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,7 +156,6 @@
 				E5D0DA682364F1130019274C /* SettingButton.swift */,
 				E5AF745C2350FD840063726B /* PossesionImageView.swift */,
 				E5AF745E2350FD920063726B /* FoulCountImageView.swift */,
-				E5AF744E234FCA7C0063726B /* AlertDialog.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -143,6 +165,7 @@
 			children = (
 				E5AF7451234FCB260063726B /* String+.swift */,
 				E5AF7452234FCB260063726B /* UIImage+.swift */,
+				E5D0DA7623698EB20019274C /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -156,6 +179,15 @@
 			path = ScorerUITests;
 			sourceTree = "<group>";
 		};
+		E8C1399F959DA01F09FE2AEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C550301D8CB428555AA020B /* Pods_Scorer.framework */,
+				A2EB5746D6EFD92002550F1A /* Pods_Scorer_ScorerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5AF743C234FBD650063726B /* Build configuration list for PBXNativeTarget "Scorer" */;
 			buildPhases = (
+				39C934B6B0794E2FCD1F70FF /* [CP] Check Pods Manifest.lock */,
 				E5AF7424234FBD620063726B /* Sources */,
 				E5AF7425234FBD620063726B /* Frameworks */,
 				E5AF7426234FBD620063726B /* Resources */,
+				17E92FC13A5246E7A9CD1BE5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5D0DA67236382170019274C /* Build configuration list for PBXNativeTarget "ScorerUITests" */;
 			buildPhases = (
+				C2862AACB4568A9F16FDBE34 /* [CP] Check Pods Manifest.lock */,
 				E5D0DA5A236382170019274C /* Sources */,
 				E5D0DA5B236382170019274C /* Frameworks */,
 				E5D0DA5C236382170019274C /* Resources */,
+				32A22A2F607AC19755C8AAD3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +291,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17E92FC13A5246E7A9CD1BE5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Scorer/Pods-Scorer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Scorer/Pods-Scorer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Scorer/Pods-Scorer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32A22A2F607AC19755C8AAD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Scorer-ScorerUITests/Pods-Scorer-ScorerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Scorer-ScorerUITests/Pods-Scorer-ScorerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Scorer-ScorerUITests/Pods-Scorer-ScorerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39C934B6B0794E2FCD1F70FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Scorer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2862AACB4568A9F16FDBE34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Scorer-ScorerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5AF7424234FBD620063726B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -262,12 +379,12 @@
 			files = (
 				E5AF7430234FBD620063726B /* MainViewController.swift in Sources */,
 				E5AF7453234FCB260063726B /* String+.swift in Sources */,
+				E5D0DA7723698EB20019274C /* UIViewController+.swift in Sources */,
 				E5AF745D2350FD840063726B /* PossesionImageView.swift in Sources */,
 				E56A46A62351897C00B127E2 /* SettingViewController.swift in Sources */,
 				E5AF7443234FC3FB0063726B /* TeamLabel.swift in Sources */,
 				E5AF7447234FC4140063726B /* ScoreSmallButton.swift in Sources */,
 				E5AF742C234FBD620063726B /* AppDelegate.swift in Sources */,
-				E5AF744F234FCA7C0063726B /* AlertDialog.swift in Sources */,
 				E5AF7445234FC4080063726B /* ScoreLabel.swift in Sources */,
 				E5AF745F2350FD930063726B /* FoulCountImageView.swift in Sources */,
 				E5AF7454234FCB260063726B /* UIImage+.swift in Sources */,
@@ -435,6 +552,7 @@
 		};
 		E5AF743D234FBD650063726B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AB72860B9A9B39CF2CAE07E /* Pods-Scorer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +572,7 @@
 		};
 		E5AF743E234FBD650063726B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26C50D774918C45E983F5F1D /* Pods-Scorer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -473,6 +592,7 @@
 		};
 		E5D0DA65236382170019274C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 105D82D080E43865A79878DC /* Pods-Scorer-ScorerUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L9QP98K44Z;
@@ -492,6 +612,7 @@
 		};
 		E5D0DA66236382170019274C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC186A0DC695BEC0805EC696 /* Pods-Scorer-ScorerUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L9QP98K44Z;

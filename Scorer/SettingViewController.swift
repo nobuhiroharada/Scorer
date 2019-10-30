@@ -102,10 +102,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             self.present(activityViewController, animated: true, completion: nil)
         }
         else if indexPath.section == 1 && indexPath.row == 0 {
-            AlertDialog.showTeamNameEditFromSettingVC(title: "team_a_name_edit".localized, team: TEAM_NAME_A, teamLabel: scoreView.teamLabelA, tableView: tableView, indexPath: indexPath, viewController: self)
+            self.showTeamNameEdit(title: "team_a_name_edit".localized, team: TEAM_NAME_A, teamLabel: scoreView.teamLabelA, viewController: self)
         }
         else if indexPath.section == 1 && indexPath.row == 1 {
-            AlertDialog.showTeamNameEditFromSettingVC(title: "team_b_name_edit".localized, team: TEAM_NAME_B, teamLabel: scoreView.teamLabelB, tableView: tableView, indexPath: indexPath, viewController: self)
+            self.showTeamNameEdit(title: "team_b_name_edit".localized, team: TEAM_NAME_B, teamLabel: scoreView.teamLabelB, viewController: self)
         }
         else if indexPath.section == 2 && indexPath.row == 0 { // リセット
             self.scoreView.reset()

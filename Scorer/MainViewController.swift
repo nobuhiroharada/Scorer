@@ -8,12 +8,15 @@
 
 import UIKit
 import AVFoundation
+import RxSwift
+import RxCocoa
 
 final class MainViewController: UIViewController {
 
     let label = UILabel()
     var scoreView  = ScoreView()
     var buzzerPlayer: AVAudioPlayer?
+    private let disposeBag = DisposeBag()
     
     override var prefersStatusBarHidden: Bool {
         return false
@@ -67,19 +70,74 @@ final class MainViewController: UIViewController {
     }
     
     func addButtonAction() {
-        scoreView.scoreMinusButtonA.addTarget(self, action: #selector(MainViewController.scoreMinusButtonA_touched), for: .touchUpInside)
         
-        scoreView.scorePlusButtonA.addTarget(self, action: #selector(MainViewController.scorePlusButtonA_touched), for: .touchUpInside)
+        scoreView.scoreMinusButtonA.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let currentScoreA = self?.scoreView.scoreA else {
+                    return
+                }
+                if currentScoreA > 0 {
+                    let newScoreA = currentScoreA - 1
+                    self?.scoreView.scoreA = newScoreA
+                    self?.scoreView.scoreLabelA.text = String(newScoreA)
+                    userdefaults.set(newScoreA, forKey: TEAM_SCORE_A)
+                }
+            })
+            .disposed(by: disposeBag)
         
-        scoreView.scoreMinusButtonB.addTarget(self, action: #selector(MainViewController.scoreMinusButtonB_touched), for: .touchUpInside)
+        scoreView.scorePlusButtonA.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let currentScoreA = self?.scoreView.scoreA else {
+                    return
+                }
+                if currentScoreA < 1000 {
+                    let newScoreA = currentScoreA + 1
+                    self?.scoreView.scoreA = newScoreA
+                    self?.scoreView.scoreLabelA.text = String(newScoreA)
+                    userdefaults.set(newScoreA, forKey: TEAM_SCORE_A)
+                }
+            })
+            .disposed(by: disposeBag)
         
-        scoreView.scorePlusButtonB.addTarget(self, action: #selector(MainViewController.scorePlusButtonB_touched), for: .touchUpInside)
+        scoreView.scoreMinusButtonB.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let currentScoreB = self?.scoreView.scoreB else {
+                    return
+                }
+                if currentScoreB > 0 {
+                    let newScoreB = currentScoreB - 1
+                    self?.scoreView.scoreB = newScoreB
+                    self?.scoreView.scoreLabelB.text = String(newScoreB)
+                    userdefaults.set(newScoreB, forKey: TEAM_SCORE_B)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        scoreView.scorePlusButtonB.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let currentScoreB = self?.scoreView.scoreB else {
+                    return
+                }
+                if currentScoreB < 1000 {
+                    let newScoreB = currentScoreB + 1
+                    self?.scoreView.scoreB = newScoreB
+                    self?.scoreView.scoreLabelB.text = String(newScoreB)
+                    userdefaults.set(newScoreB, forKey: TEAM_SCORE_B)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        scoreView.settingButton.rx.tap
+            .subscribe(onNext: {
+                let settingViewController = SettingViewController()
+                settingViewController.scoreView = self.scoreView
+                self.present(settingViewController, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
         
         scoreView.buzzerButton.addTarget(self, action: #selector(MainViewController.buzzerButton_touchDown), for: .touchDown)
         
         scoreView.buzzerButton.addTarget(self, action: #selector(MainViewController.buzzerButton_touchUp), for: [.touchUpInside, .touchUpOutside])
-        
-        scoreView.settingButton.addTarget(self, action: #selector(MainViewController.settingButton_touched), for: .touchUpInside)
     }
     
     func addGesturerecognizer() {
@@ -132,61 +190,22 @@ final class MainViewController: UIViewController {
         scoreView.foulCountImageB5.addGestureRecognizer(tapFoulCountB5)
         
     }
-
-    // MARK: - addButtonAction
-    @objc func scoreMinusButtonA_touched(_ sender: UIButton) {
-        if scoreView.scoreA > 0 {
-            scoreView.scoreA -= 1
-            scoreView.scoreLabelA.text = String(scoreView.scoreA)
-            userdefaults.set(scoreView.scoreA, forKey: TEAM_SCORE_A)
-        }
-    }
-    
-    @objc func scorePlusButtonA_touched(_ sender: UIButton) {
-        if scoreView.scoreA < 1000 {
-            scoreView.scoreA += 1
-            scoreView.scoreLabelA.text = String(scoreView.scoreA)
-            userdefaults.set(scoreView.scoreA, forKey: TEAM_SCORE_A)
-        }
-    }
-    
-    @objc func scoreMinusButtonB_touched(_ sender: UIButton) {
-        if scoreView.scoreB > 0 {
-            scoreView.scoreB -= 1
-            scoreView.scoreLabelB.text = String(scoreView.scoreB)
-            userdefaults.set(scoreView.scoreB, forKey: TEAM_SCORE_B)
-        }
-    }
-    
-    @objc func scorePlusButtonB_touched(_ sender: UIButton) {
-        if scoreView.scoreB < 1000 {
-            scoreView.scoreB += 1
-            scoreView.scoreLabelB.text = String(scoreView.scoreB)
-            userdefaults.set(scoreView.scoreB, forKey: TEAM_SCORE_B)
-        }
-    }
-    
-    @objc func settingButton_touched(_ sender: UIButton) {
-        let settingViewController = SettingViewController()
-        settingViewController.scoreView = self.scoreView
-        self.present(settingViewController, animated: true, completion: nil)
-    }
     
     // MARK: - addGesturerecognizer
     @objc func teamLabelA_tapped(_ sender: UITapGestureRecognizer) {
-        AlertDialog.showTeamNameEdit(title: "team_a_name_edit".localized, team: TEAM_NAME_A, teamLabel: scoreView.teamLabelA, viewController: self)
+        self.showTeamNameEdit(title: "team_a_name_edit".localized, team: TEAM_NAME_A, teamLabel: scoreView.teamLabelA, viewController: self)
     }
     
     @objc func teamLabelB_tapped(_ sender: UITapGestureRecognizer) {
-        AlertDialog.showTeamNameEdit(title: "team_b_name_edit".localized, team: TEAM_NAME_B, teamLabel: scoreView.teamLabelB, viewController: self)
+        self.showTeamNameEdit(title: "team_b_name_edit".localized, team: TEAM_NAME_B, teamLabel: scoreView.teamLabelB, viewController: self)
     }
     
     @objc func scoreLabelA_tapped(_ sender: UITapGestureRecognizer) {
-        AlertDialog.showScoreEdit(title: "team_a_score_edit".localized, team: TEAM_NAME_A, scoreView: scoreView, viewController: self)
+        self.showScoreEdit(title: "team_a_score_edit".localized, team: TEAM_NAME_A, scoreView: scoreView, viewController: self)
     }
     
     @objc func scoreLabelB_tapped(_ sender: UITapGestureRecognizer) {
-        AlertDialog.showScoreEdit(title: "team_b_score_edit".localized, team: TEAM_NAME_B, scoreView: scoreView, viewController: self)
+        self.showScoreEdit(title: "team_b_score_edit".localized, team: TEAM_NAME_B, scoreView: scoreView, viewController: self)
     }
     
     @objc func buzzerButton_touchDown(_ sender: UIButton) {
