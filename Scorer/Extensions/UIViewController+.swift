@@ -18,11 +18,11 @@ extension UIViewController {
                 
                 for textField in textFields {
                     teamLabel.text = textField.text
-                    if team == TEAM_NAME_A {
-                        userdefaults.set(textField.text, forKey: TEAM_NAME_A)
+                    if team == Consts.TEAM_NAME_A {
+                        userdefaults.set(textField.text, forKey: Consts.TEAM_NAME_A)
                     }
-                    else if team == TEAM_NAME_B {
-                        userdefaults.set(textField.text, forKey: TEAM_NAME_B)
+                    else if team == Consts.TEAM_NAME_B {
+                        userdefaults.set(textField.text, forKey: Consts.TEAM_NAME_B)
                     }
                 }
                 
@@ -54,15 +54,15 @@ extension UIViewController {
                     
                     if let textFieldText = textField.text {
                         if !textFieldText.isEmpty {
-                            if team == TEAM_NAME_A {
+                            if team == Consts.TEAM_NAME_A {
                                 scoreView.scoreLabelA.text = textField.text
                                 scoreView.scoreA = Int(textFieldText)!
-                                userdefaults.set(textField.text, forKey: TEAM_SCORE_A)
+                                userdefaults.set(textField.text, forKey: Consts.TEAM_SCORE_A)
                             }
-                            else if team == TEAM_NAME_B {
+                            else if team == Consts.TEAM_NAME_B {
                                 scoreView.scoreLabelB.text = textField.text
                                 scoreView.scoreB = Int(textFieldText)!
-                                userdefaults.set(textField.text, forKey: TEAM_SCORE_B)
+                                userdefaults.set(textField.text, forKey: Consts.TEAM_SCORE_B)
                             }
                         }
                     }
@@ -78,10 +78,10 @@ extension UIViewController {
         
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
             textField.placeholder = String(0)
-            if team == TEAM_NAME_A {
+            if team == Consts.TEAM_NAME_A {
                 textField.text = scoreView.scoreLabelA.text
             }
-            else if team == TEAM_NAME_B {
+            else if team == Consts.TEAM_NAME_B {
                 textField.text = scoreView.scoreLabelB.text
             }
             

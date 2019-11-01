@@ -29,6 +29,7 @@
 		E5D0DA61236382170019274C /* ScorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA60236382170019274C /* ScorerUITests.swift */; };
 		E5D0DA692364F1130019274C /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA682364F1130019274C /* SettingButton.swift */; };
 		E5D0DA7723698EB20019274C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA7623698EB20019274C /* UIViewController+.swift */; };
+		E5D0DA82236CB9AD0019274C /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA81236CB9AD0019274C /* Consts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		E5D0DA62236382170019274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D0DA682364F1130019274C /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		E5D0DA7623698EB20019274C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		E5D0DA81236CB9AD0019274C /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				E5AF743F234FC3A30063726B /* ScoreView.swift */,
 				E5AF7441234FC3C80063726B /* Components */,
 				E5AF7450234FCAD30063726B /* Extensions */,
+				E5D0DA80236CB9960019274C /* Util */,
 				E5AF7434234FBD650063726B /* Assets.xcassets */,
 				E5AF745A234FCC1A0063726B /* Localizable.strings */,
 				E5AF744A234FC5160063726B /* buzzer.mp3 */,
@@ -177,6 +180,14 @@
 				E5D0DA62236382170019274C /* Info.plist */,
 			);
 			path = ScorerUITests;
+			sourceTree = "<group>";
+		};
+		E5D0DA80236CB9960019274C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0DA81236CB9AD0019274C /* Consts.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		E8C1399F959DA01F09FE2AEB /* Frameworks */ = {
@@ -387,6 +398,7 @@
 				E5AF742C234FBD620063726B /* AppDelegate.swift in Sources */,
 				E5AF7445234FC4080063726B /* ScoreLabel.swift in Sources */,
 				E5AF745F2350FD930063726B /* FoulCountImageView.swift in Sources */,
+				E5D0DA82236CB9AD0019274C /* Consts.swift in Sources */,
 				E5AF7454234FCB260063726B /* UIImage+.swift in Sources */,
 				E5AF7449234FC4F90063726B /* BuzzerButton.swift in Sources */,
 				E5D0DA692364F1130019274C /* SettingButton.swift in Sources */,

@@ -102,10 +102,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             self.present(activityViewController, animated: true, completion: nil)
         }
         else if indexPath.section == 1 && indexPath.row == 0 {
-            self.showTeamNameEdit(title: "team_a_name_edit".localized, team: TEAM_NAME_A, teamLabel: scoreView.teamLabelA, viewController: self)
+            self.showTeamNameEdit(title: "team_a_name_edit".localized, team: Consts.TEAM_NAME_A, teamLabel: scoreView.teamLabelA, viewController: self)
         }
         else if indexPath.section == 1 && indexPath.row == 1 {
-            self.showTeamNameEdit(title: "team_b_name_edit".localized, team: TEAM_NAME_B, teamLabel: scoreView.teamLabelB, viewController: self)
+            self.showTeamNameEdit(title: "team_b_name_edit".localized, team: Consts.TEAM_NAME_B, teamLabel: scoreView.teamLabelB, viewController: self)
         }
         else if indexPath.section == 2 && indexPath.row == 0 { // リセット
             self.scoreView.reset()
@@ -217,9 +217,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func switchAutoBuzzer(_ sender : UISwitch!){
 
         if sender.isOn {
-            userdefaults.set(true, forKey: BUZEER_AUTO_BEEP)
+            userdefaults.set(true, forKey: Consts.BUZEER_AUTO_BEEP)
         } else {
-            userdefaults.set(false, forKey: BUZEER_AUTO_BEEP)
+            userdefaults.set(false, forKey: Consts.BUZEER_AUTO_BEEP)
         }
     }
 }

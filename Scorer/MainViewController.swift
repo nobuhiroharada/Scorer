@@ -80,7 +80,7 @@ final class MainViewController: UIViewController {
                     let newScoreA = currentScoreA - 1
                     self?.scoreView.scoreA = newScoreA
                     self?.scoreView.scoreLabelA.text = String(newScoreA)
-                    userdefaults.set(newScoreA, forKey: TEAM_SCORE_A)
+                    userdefaults.set(newScoreA, forKey: Consts.TEAM_SCORE_A)
                 }
             })
             .disposed(by: disposeBag)
@@ -94,7 +94,7 @@ final class MainViewController: UIViewController {
                     let newScoreA = currentScoreA + 1
                     self?.scoreView.scoreA = newScoreA
                     self?.scoreView.scoreLabelA.text = String(newScoreA)
-                    userdefaults.set(newScoreA, forKey: TEAM_SCORE_A)
+                    userdefaults.set(newScoreA, forKey: Consts.TEAM_SCORE_A)
                 }
             })
             .disposed(by: disposeBag)
@@ -108,7 +108,7 @@ final class MainViewController: UIViewController {
                     let newScoreB = currentScoreB - 1
                     self?.scoreView.scoreB = newScoreB
                     self?.scoreView.scoreLabelB.text = String(newScoreB)
-                    userdefaults.set(newScoreB, forKey: TEAM_SCORE_B)
+                    userdefaults.set(newScoreB, forKey: Consts.TEAM_SCORE_B)
                 }
             })
             .disposed(by: disposeBag)
@@ -122,7 +122,7 @@ final class MainViewController: UIViewController {
                     let newScoreB = currentScoreB + 1
                     self?.scoreView.scoreB = newScoreB
                     self?.scoreView.scoreLabelB.text = String(newScoreB)
-                    userdefaults.set(newScoreB, forKey: TEAM_SCORE_B)
+                    userdefaults.set(newScoreB, forKey: Consts.TEAM_SCORE_B)
                 }
             })
             .disposed(by: disposeBag)
@@ -141,71 +141,102 @@ final class MainViewController: UIViewController {
     }
     
     func addGesturerecognizer() {
-        let tapTeamA = UITapGestureRecognizer(target: self, action: #selector(MainViewController.teamLabelA_tapped))
+        let tapTeamA = UITapGestureRecognizer()
         scoreView.teamLabelA.addGestureRecognizer(tapTeamA)
+        tapTeamA.rx.event.bind { (recognizer) in
+            self.showTeamNameEdit(title: "team_a_name_edit".localized, team: Consts.TEAM_NAME_A, teamLabel: self.scoreView.teamLabelA, viewController: self)
+        }.disposed(by: disposeBag)
         
-        let tapTeamB = UITapGestureRecognizer(target: self, action: #selector(MainViewController.teamLabelB_tapped))
+        let tapTeamB = UITapGestureRecognizer()
         scoreView.teamLabelB.addGestureRecognizer(tapTeamB)
+        tapTeamB.rx.event.bind { (recognizer) in
+            self.showTeamNameEdit(title: "team_b_name_edit".localized, team: Consts.TEAM_NAME_B, teamLabel: self.scoreView.teamLabelB, viewController: self)
+        }.disposed(by: disposeBag)
 
-        let tapScoreA = UITapGestureRecognizer(target: self, action: #selector(MainViewController.scoreLabelA_tapped))
+        let tapScoreA = UITapGestureRecognizer()
         scoreView.scoreLabelA.addGestureRecognizer(tapScoreA)
+        tapScoreA.rx.event.bind { (recognizer) in
+            self.showScoreEdit(title: "team_a_score_edit".localized, team: Consts.TEAM_NAME_A, scoreView: self.scoreView, viewController: self)
+        }.disposed(by: disposeBag)
         
-        let tapScoreB = UITapGestureRecognizer(target: self, action: #selector(MainViewController.scoreLabelB_tapped))
+        let tapScoreB = UITapGestureRecognizer()
         scoreView.scoreLabelB.addGestureRecognizer(tapScoreB)
+        tapScoreB.rx.event.bind { (recognizer) in
+            self.showScoreEdit(title: "team_b_score_edit".localized, team: Consts.TEAM_NAME_B, scoreView: self.scoreView, viewController: self)
+        }.disposed(by: disposeBag)
         
-        let tapPossessionA = UITapGestureRecognizer(target: self, action: #selector(MainViewController.possessionA_tapped))
+        let tapPossessionA = UITapGestureRecognizer()
         scoreView.possessionImageA.addGestureRecognizer(tapPossessionA)
+        tapPossessionA.rx.event.bind { (recognizer) in
+            self.scoreView.togglePossession()
+        }.disposed(by: disposeBag)
         
-        let tapPossessionB = UITapGestureRecognizer(target: self, action: #selector(MainViewController.possessionB_tapped))
+        let tapPossessionB = UITapGestureRecognizer()
         scoreView.possessionImageB.addGestureRecognizer(tapPossessionB)
+        tapPossessionB.rx.event.bind { (recognizer) in
+            self.scoreView.togglePossession()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountA1 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA1_tapped))
+        let tapFoulCountA1 = UITapGestureRecognizer()
         scoreView.foulCountImageA1.addGestureRecognizer(tapFoulCountA1)
+        tapFoulCountA1.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountA1()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountA2 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA2_tapped))
+        let tapFoulCountA2 = UITapGestureRecognizer()
         scoreView.foulCountImageA2.addGestureRecognizer(tapFoulCountA2)
+        tapFoulCountA2.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountA2()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountA3 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA3_tapped))
+        let tapFoulCountA3 = UITapGestureRecognizer()
         scoreView.foulCountImageA3.addGestureRecognizer(tapFoulCountA3)
+        tapFoulCountA3.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountA3()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountA4 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA4_tapped))
+        let tapFoulCountA4 = UITapGestureRecognizer()
         scoreView.foulCountImageA4.addGestureRecognizer(tapFoulCountA4)
+        tapFoulCountA4.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountA4()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountA5 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountA5_tapped))
+        let tapFoulCountA5 = UITapGestureRecognizer()
         scoreView.foulCountImageA5.addGestureRecognizer(tapFoulCountA5)
+        tapFoulCountA5.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountA5()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountB1 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB1_tapped))
+        let tapFoulCountB1 = UITapGestureRecognizer()
         scoreView.foulCountImageB1.addGestureRecognizer(tapFoulCountB1)
+        tapFoulCountB1.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountB1()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountB2 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB2_tapped))
+        let tapFoulCountB2 = UITapGestureRecognizer()
         scoreView.foulCountImageB2.addGestureRecognizer(tapFoulCountB2)
+        tapFoulCountB2.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountB2()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountB3 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB3_tapped))
+        let tapFoulCountB3 = UITapGestureRecognizer()
         scoreView.foulCountImageB3.addGestureRecognizer(tapFoulCountB3)
+        tapFoulCountB3.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountB3()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountB4 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB4_tapped))
+        let tapFoulCountB4 = UITapGestureRecognizer()
         scoreView.foulCountImageB4.addGestureRecognizer(tapFoulCountB4)
+        tapFoulCountB4.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountB4()
+        }.disposed(by: disposeBag)
         
-        let tapFoulCountB5 = UITapGestureRecognizer(target: self, action: #selector(MainViewController.foulCountB5_tapped))
+        let tapFoulCountB5 = UITapGestureRecognizer()
         scoreView.foulCountImageB5.addGestureRecognizer(tapFoulCountB5)
+        tapFoulCountB5.rx.event.bind { (recognizer) in
+            self.scoreView.tapFoulCountB5()
+        }.disposed(by: disposeBag)
         
-    }
-    
-    // MARK: - addGesturerecognizer
-    @objc func teamLabelA_tapped(_ sender: UITapGestureRecognizer) {
-        self.showTeamNameEdit(title: "team_a_name_edit".localized, team: TEAM_NAME_A, teamLabel: scoreView.teamLabelA, viewController: self)
-    }
-    
-    @objc func teamLabelB_tapped(_ sender: UITapGestureRecognizer) {
-        self.showTeamNameEdit(title: "team_b_name_edit".localized, team: TEAM_NAME_B, teamLabel: scoreView.teamLabelB, viewController: self)
-    }
-    
-    @objc func scoreLabelA_tapped(_ sender: UITapGestureRecognizer) {
-        self.showScoreEdit(title: "team_a_score_edit".localized, team: TEAM_NAME_A, scoreView: scoreView, viewController: self)
-    }
-    
-    @objc func scoreLabelB_tapped(_ sender: UITapGestureRecognizer) {
-        self.showScoreEdit(title: "team_b_score_edit".localized, team: TEAM_NAME_B, scoreView: scoreView, viewController: self)
     }
     
     @objc func buzzerButton_touchDown(_ sender: UIButton) {
@@ -217,54 +248,6 @@ final class MainViewController: UIViewController {
         buzzerPlayer?.stop()
         buzzerPlayer?.currentTime = 0
         scoreView.buzzerButton.setImage(UIImage(named: "buzzer-up"), for: .normal)
-    }
-    
-    @objc func possessionA_tapped(_ sender: UITapGestureRecognizer) {
-        scoreView.togglePossession()
-    }
-    
-    @objc func possessionB_tapped(_ sender: UITapGestureRecognizer) {
-        scoreView.togglePossession()
-    }
-    
-    @objc func foulCountA1_tapped() {
-        scoreView.tapFoulCountA1()
-    }
-    
-    @objc func foulCountA2_tapped() {
-        scoreView.tapFoulCountA2()
-    }
-    
-    @objc func foulCountA3_tapped() {
-        scoreView.tapFoulCountA3()
-    }
-    
-    @objc func foulCountA4_tapped() {
-        scoreView.tapFoulCountA4()
-    }
-    
-    @objc func foulCountA5_tapped() {
-        scoreView.tapFoulCountA5()
-    }
-    
-    @objc func foulCountB1_tapped() {
-        scoreView.tapFoulCountB1()
-    }
-    
-    @objc func foulCountB2_tapped() {
-        scoreView.tapFoulCountB2()
-    }
-    
-    @objc func foulCountB3_tapped() {
-        scoreView.tapFoulCountB3()
-    }
-    
-    @objc func foulCountB4_tapped() {
-        scoreView.tapFoulCountB4()
-    }
-    
-    @objc func foulCountB5_tapped() {
-        scoreView.tapFoulCountB5()
     }
     
 }

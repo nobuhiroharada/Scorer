@@ -9,11 +9,6 @@
 import UIKit
 
 let userdefaults = UserDefaults.standard
-let BUZEER_AUTO_BEEP: String = "buzzer_auto_beep"
-let TEAM_NAME_A: String  = "team_name_a"
-let TEAM_NAME_B: String  = "team_name_b"
-let TEAM_SCORE_A: String = "team_score_a"
-let TEAM_SCORE_B: String = "team_score_b"
 
 var isLandscape: Bool {
     return UIApplication.shared.windows
@@ -31,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        if (userdefaults.object(forKey: BUZEER_AUTO_BEEP) == nil) {
-            userdefaults.set(false, forKey: BUZEER_AUTO_BEEP)
+        if (userdefaults.object(forKey: Consts.BUZEER_AUTO_BEEP) == nil) {
+            userdefaults.set(false, forKey: Consts.BUZEER_AUTO_BEEP)
         }
         
         window = UIWindow(frame: UIScreen.main.bounds)

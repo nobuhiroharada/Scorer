@@ -53,65 +53,50 @@ final class ScoreView: UIView {
     
     override init(frame: CGRect) {
         teamLabelA = TeamLabel()
-        if let teamNameA = userdefaults.string(forKey: TEAM_NAME_A) {
+        if let teamNameA = userdefaults.string(forKey: Consts.TEAM_NAME_A) {
             teamLabelA.text = teamNameA
         } else {
             teamLabelA.text = "team_name_a".localized
         }
         
-        teamLabelA.accessibilityIdentifier = "teamLabelA"
-        
         teamLabelB = TeamLabel()
-        if let teamNameB = userdefaults.string(forKey: TEAM_NAME_B) {
+        if let teamNameB = userdefaults.string(forKey: Consts.TEAM_NAME_B) {
             teamLabelB.text = teamNameB
         } else {
             teamLabelB.text = "team_name_b".localized
         }
         
-        teamLabelB.accessibilityIdentifier = "teamLabelB"
-        
         scoreLabelA = ScoreLabel()
-        scoreLabelA.accessibilityIdentifier = "scoreLabelA"
-        
         scoreLabelB = ScoreLabel()
-        scoreLabelB.accessibilityIdentifier = "scoreLabelB"
         
         let upButtonImage = UIImage(named:"up-button")!
         let downButtonImage = UIImage(named:"down-button")!
         
         scoreMinusButtonA = ScoreSmallButton()
         scoreMinusButtonA.setImage(downButtonImage, for: .normal)
-        scoreMinusButtonA.accessibilityIdentifier = "scoreMinusButtonA"
         
         scorePlusButtonA = ScoreSmallButton()
         scorePlusButtonA.setImage(upButtonImage, for: .normal)
-        scorePlusButtonA.accessibilityIdentifier = "scorePlusButtonA"
         
         scoreMinusButtonB = ScoreSmallButton()
         scoreMinusButtonB.setImage(downButtonImage, for: .normal)
-        scoreMinusButtonB.accessibilityIdentifier = "scoreMinusButtonB"
         
         scorePlusButtonB = ScoreSmallButton()
         scorePlusButtonB.setImage(upButtonImage, for: .normal)
-        scorePlusButtonB.accessibilityIdentifier = "scorePlusButtonB"
         
         buzzerButton = BuzzerButton()
-        buzzerButton.accessibilityIdentifier = "buzzerButton"
         
         settingButton = SettingButton()
-        settingButton.accessibilityIdentifier = "settingButton"
         
         possessionImageA = PossesionImageView(frame: CGRect.zero)
         if let imageA = UIImage(named: "posses-a-active") {
             possessionImageA.image = imageA
         }
-        possessionImageA.accessibilityIdentifier = "possessionImageA"
         
         possessionImageB = PossesionImageView(frame: CGRect.zero)
         if let imageB = UIImage(named: "posses-b-inactive") {
             possessionImageB.image = imageB
         }
-        possessionImageB.accessibilityIdentifier = "possessionImageB"
         
         foulCountImageA1 = FoulCountImageView(frame: CGRect.zero)
         foulCountImageA2 = FoulCountImageView(frame: CGRect.zero)
@@ -124,18 +109,6 @@ final class ScoreView: UIView {
         foulCountImageB3 = FoulCountImageView(frame: CGRect.zero)
         foulCountImageB4 = FoulCountImageView(frame: CGRect.zero)
         foulCountImageB5 = FoulCountImageView(frame: CGRect.zero)
-        
-        foulCountImageA1.accessibilityIdentifier = "foulCountImageA1"
-        foulCountImageA2.accessibilityIdentifier = "foulCountImageA2"
-        foulCountImageA3.accessibilityIdentifier = "foulCountImageA3"
-        foulCountImageA4.accessibilityIdentifier = "foulCountImageA4"
-        foulCountImageA5.accessibilityIdentifier = "foulCountImageA5"
-        
-        foulCountImageB1.accessibilityIdentifier = "foulCountImageB1"
-        foulCountImageB2.accessibilityIdentifier = "foulCountImageB2"
-        foulCountImageB3.accessibilityIdentifier = "foulCountImageB3"
-        foulCountImageB4.accessibilityIdentifier = "foulCountImageB4"
-        foulCountImageB5.accessibilityIdentifier = "foulCountImageB5"
         
         super.init(frame: frame)
         
@@ -161,6 +134,8 @@ final class ScoreView: UIView {
         self.addSubview(foulCountImageB3)
         self.addSubview(foulCountImageB4)
         self.addSubview(foulCountImageB5)
+        
+        self.addAccessibilityIdentifier()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -318,11 +293,10 @@ final class ScoreView: UIView {
     func tapFoulCountA1() {
         if isFirstFoulA {
             foulCountImageA1.image = UIImage(named: "foulcount-active")
-            isFirstFoulA.toggle()
         } else {
             foulCountImageA1.image = UIImage(named: "foulcount-inactive")
-            isFirstFoulA.toggle()
         }
+        isFirstFoulA.toggle()
         
         foulCountImageA2.image = UIImage(named: "foulcount-inactive")
         foulCountImageA3.image = UIImage(named: "foulcount-inactive")
@@ -369,11 +343,10 @@ final class ScoreView: UIView {
     func tapFoulCountB1() {
         if isFirstFoulB {
             foulCountImageB1.image = UIImage(named: "foulcount-active")
-            isFirstFoulB.toggle()
         } else {
             foulCountImageB1.image = UIImage(named: "foulcount-inactive")
-            isFirstFoulB.toggle()
         }
+        isFirstFoulB.toggle()
         
         foulCountImageB2.image = UIImage(named: "foulcount-inactive")
         foulCountImageB3.image = UIImage(named: "foulcount-inactive")
@@ -415,6 +388,34 @@ final class ScoreView: UIView {
         foulCountImageB4.image = UIImage(named: "foulcount-five")
         foulCountImageB5.image = UIImage(named: "foulcount-five")
         isFirstFoulB = false
+    }
+    
+    func addAccessibilityIdentifier() {
+        
+        teamLabelA.accessibilityIdentifier = "teamLabelA"
+        teamLabelB.accessibilityIdentifier = "teamLabelB"
+        scoreLabelA.accessibilityIdentifier = "scoreLabelA"
+        scoreLabelB.accessibilityIdentifier = "scoreLabelB"
+        scoreMinusButtonA.accessibilityIdentifier = "scoreMinusButtonA"
+        scorePlusButtonA.accessibilityIdentifier = "scorePlusButtonA"
+        scoreMinusButtonB.accessibilityIdentifier = "scoreMinusButtonB"
+        scorePlusButtonB.accessibilityIdentifier = "scorePlusButtonB"
+        buzzerButton.accessibilityIdentifier = "buzzerButton"
+        settingButton.accessibilityIdentifier = "settingButton"
+        possessionImageA.accessibilityIdentifier = "possessionImageA"
+        possessionImageB.accessibilityIdentifier = "possessionImageB"
+        
+        foulCountImageA1.accessibilityIdentifier = "foulCountImageA1"
+        foulCountImageA2.accessibilityIdentifier = "foulCountImageA2"
+        foulCountImageA3.accessibilityIdentifier = "foulCountImageA3"
+        foulCountImageA4.accessibilityIdentifier = "foulCountImageA4"
+        foulCountImageA5.accessibilityIdentifier = "foulCountImageA5"
+        
+        foulCountImageB1.accessibilityIdentifier = "foulCountImageB1"
+        foulCountImageB2.accessibilityIdentifier = "foulCountImageB2"
+        foulCountImageB3.accessibilityIdentifier = "foulCountImageB3"
+        foulCountImageB4.accessibilityIdentifier = "foulCountImageB4"
+        foulCountImageB5.accessibilityIdentifier = "foulCountImageB5"
     }
 }
 
