@@ -73,13 +73,13 @@ final class MainViewController: UIViewController {
         
         scoreView.scoreMinusButtonA.rx.tap
             .subscribe(onNext: { [weak self] in
-                guard let currentScoreA = self?.scoreView.scoreA else {
+                guard let currentScoreA = self?.scoreView.teamA.score else {
                     return
                 }
                 if currentScoreA > 0 {
-                    let newScoreA = currentScoreA - 1
-                    self?.scoreView.scoreA = newScoreA
-                    self?.scoreView.scoreLabelA.text = String(newScoreA)
+                    let newScoreA = self?.scoreView.teamA.decrementScore(score: currentScoreA)
+                    self?.scoreView.teamA.score = newScoreA ?? currentScoreA
+                    self?.scoreView.scoreLabelA.text = String(newScoreA ?? currentScoreA)
                     userdefaults.set(newScoreA, forKey: Consts.TEAM_SCORE_A)
                 }
             })
@@ -87,13 +87,13 @@ final class MainViewController: UIViewController {
         
         scoreView.scorePlusButtonA.rx.tap
             .subscribe(onNext: { [weak self] in
-                guard let currentScoreA = self?.scoreView.scoreA else {
+                guard let currentScoreA = self?.scoreView.teamA.score else {
                     return
                 }
                 if currentScoreA < 1000 {
-                    let newScoreA = currentScoreA + 1
-                    self?.scoreView.scoreA = newScoreA
-                    self?.scoreView.scoreLabelA.text = String(newScoreA)
+                    let newScoreA = self?.scoreView.teamA.incrementScore(score: currentScoreA)
+                    self?.scoreView.teamA.score = newScoreA ?? currentScoreA
+                    self?.scoreView.scoreLabelA.text = String(newScoreA ?? currentScoreA)
                     userdefaults.set(newScoreA, forKey: Consts.TEAM_SCORE_A)
                 }
             })
@@ -101,13 +101,13 @@ final class MainViewController: UIViewController {
         
         scoreView.scoreMinusButtonB.rx.tap
             .subscribe(onNext: { [weak self] in
-                guard let currentScoreB = self?.scoreView.scoreB else {
+                guard let currentScoreB = self?.scoreView.teamB.score else {
                     return
                 }
                 if currentScoreB > 0 {
-                    let newScoreB = currentScoreB - 1
-                    self?.scoreView.scoreB = newScoreB
-                    self?.scoreView.scoreLabelB.text = String(newScoreB)
+                    let newScoreB = self?.scoreView.teamB.decrementScore(score: currentScoreB)
+                    self?.scoreView.teamB.score = newScoreB ?? currentScoreB
+                    self?.scoreView.scoreLabelB.text = String(newScoreB ?? currentScoreB)
                     userdefaults.set(newScoreB, forKey: Consts.TEAM_SCORE_B)
                 }
             })
@@ -115,13 +115,13 @@ final class MainViewController: UIViewController {
         
         scoreView.scorePlusButtonB.rx.tap
             .subscribe(onNext: { [weak self] in
-                guard let currentScoreB = self?.scoreView.scoreB else {
+                guard let currentScoreB = self?.scoreView.teamB.score else {
                     return
                 }
                 if currentScoreB < 1000 {
-                    let newScoreB = currentScoreB + 1
-                    self?.scoreView.scoreB = newScoreB
-                    self?.scoreView.scoreLabelB.text = String(newScoreB)
+                    let newScoreB = self?.scoreView.teamB.incrementScore(score: currentScoreB)
+                    self?.scoreView.teamB.score = newScoreB ?? currentScoreB
+                    self?.scoreView.scoreLabelB.text = String(newScoreB ?? currentScoreB)
                     userdefaults.set(newScoreB, forKey: Consts.TEAM_SCORE_B)
                 }
             })

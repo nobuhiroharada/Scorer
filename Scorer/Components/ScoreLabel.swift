@@ -22,35 +22,32 @@ class ScoreLabel: UILabel {
         case .phone:
             initPhoneAttr()
         case .pad:
-            checkOrientation4Pad()
+            initPadAttrLandscape()
         default:
-            initPhoneAttr()
+            break
         }
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func checkOrientation4Pad() {
-        if isLandscape {
-            initPadAttrLandscape()
+    func initPhoneAttr() {
+        if UIScreen.main.bounds.size.width > 568 { // iPhone SEよりwidthが大きい場合
+            setBig4Phone()
+        } else {
+            setNormal4Phone()
         }
-//        else {
-//            initPadAttrPortrait()
-//        }
-        
     }
     
-    func initPhoneAttr() {
+    func setNormal4Phone() {
         self.bounds = CGRect(x: 0, y: 0, width: 200, height: 160)
         self.font = UIFont(name: "DigitalDismay", size: 150)
     }
     
-    func initPadAttrPortrait() {
-        self.bounds = CGRect(x: 0, y: 0, width: 280, height: 160)
-        self.font = UIFont(name: "DigitalDismay", size: 180)
+    func setBig4Phone() {
+        self.bounds = CGRect(x: 0, y: 0, width: 400, height: 220)
+        self.font = UIFont(name: "DigitalDismay", size: 270)
     }
     
     func initPadAttrLandscape() {

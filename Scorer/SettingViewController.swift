@@ -11,10 +11,11 @@ import UIKit
  
 final class SettingViewController: UIViewController {
  
-    private let tableSections: Array = [" ", " ", " ", " "]
+    private let tableSections: Array = [" ", " ", " ", " ", " "]
     private let tableRowTitles: Array = [
         ["setting_share".localized],
         ["setting_team_name_a".localized, "setting_team_name_b".localized],
+        ["setting_foulcount_display".localized],
         ["setting_reset".localized],
         ["app_version".localized]
     ]
@@ -49,6 +50,7 @@ final class SettingViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reusableCellId)
         tableView.dataSource = self
         tableView.delegate = self
+//        tableView.bounces = false
         self.view.addSubview(tableView)
         
     }
@@ -101,13 +103,13 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             
             self.present(activityViewController, animated: true, completion: nil)
         }
-        else if indexPath.section == 1 && indexPath.row == 0 {
+        else if indexPath.section == 1 && indexPath.row == 0 { // チームA名前編集
             self.showTeamNameEdit(title: "team_a_name_edit".localized, team: Consts.TEAM_NAME_A, teamLabel: scoreView.teamLabelA, viewController: self)
         }
-        else if indexPath.section == 1 && indexPath.row == 1 {
+        else if indexPath.section == 1 && indexPath.row == 1 { // チームB名前編集
             self.showTeamNameEdit(title: "team_b_name_edit".localized, team: Consts.TEAM_NAME_B, teamLabel: scoreView.teamLabelB, viewController: self)
         }
-        else if indexPath.section == 2 && indexPath.row == 0 { // リセット
+        else if indexPath.section == 3 && indexPath.row == 0 { // リセット
             self.scoreView.reset()
             self.dismiss(animated: true, completion: nil)
         }
@@ -115,7 +117,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: reusableCellId, for: indexPath)
-//        cell.textLabel!.text = "\(tableRowTitle[indexPath.row])"
         
         switch indexPath.section {
         case 0:
@@ -176,6 +177,33 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 2:
             switch indexPath.row { // セクション3
+            case 0://ファウルカウント表示
+                let switchView = UISwitch(frame: .zero)
+
+                if userdefaults.bool(forKey: Consts.DISPLAY_FOULCOUNT) {
+                    switchView.setOn(true, animated: true)
+                } else {
+                    switchView.setOn(false, animated: true)
+                }
+
+                switchView.tag = indexPath.row
+                switchView.addTarget(self, action: #selector(self.switchDisplayFounlCount(_:)), for: .valueChanged)
+                
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    cell.accessoryView = switchView
+                } else {
+                    switchView.center = CGPoint(x: self.view.frame.width - 50, y: cell.frame.height/2)
+                    cell.contentView.addSubview(switchView)
+                }
+                
+                cell.textLabel?.text = tableRowTitles[indexPath.section][indexPath.row]
+                cell.selectionStyle = .none
+                return cell
+            default:
+                break
+            }
+        case 3:
+            switch indexPath.row { // セクション3
             case 0://リセット
                 cell.textLabel?.text = tableRowTitles[indexPath.section][indexPath.row]
                 cell.textLabel?.textColor = .systemBlue
@@ -183,7 +211,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             default:
                 break
             }
-        case 3:
+        case 4:
             switch indexPath.row { // セクション4
             case 0:// バージョン
                 if cell.detailTextLabel == nil {
@@ -200,26 +228,16 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-//        if indexPath.row == 0 { // リセット
-//            cell.textLabel?.textColor = .systemBlue
-//        }
-//        else if indexPath.row == 1 { // バージョン
-//            if cell.detailTextLabel == nil {
-//                cell = UITableViewCell(style: .value1, reuseIdentifier: reusableCellId)
-//            }
-//            cell.textLabel?.text = "\(tableRowTitle[indexPath.row])"
-//            cell.detailTextLabel?.text = (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String) ?? "Unknown"
-//        }
-        
         return cell
     }
     
-    @objc func switchAutoBuzzer(_ sender : UISwitch!){
-
+    @objc func switchDisplayFounlCount(_ sender : UISwitch!) {
         if sender.isOn {
-            userdefaults.set(true, forKey: Consts.BUZEER_AUTO_BEEP)
+            self.scoreView.showFoulCount()
+            userdefaults.set(true, forKey: Consts.DISPLAY_FOULCOUNT)
         } else {
-            userdefaults.set(false, forKey: Consts.BUZEER_AUTO_BEEP)
+            self.scoreView.hideFoulCount()
+            userdefaults.set(false, forKey: Consts.DISPLAY_FOULCOUNT)
         }
     }
 }

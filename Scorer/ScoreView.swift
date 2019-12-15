@@ -11,14 +11,16 @@ import UIKit
 final class ScoreView: UIView {
     
     // スコアA
-    var scoreA: Int = 0
+    var teamA: Team
+//    var scoreA: Int = 0
     var teamLabelA: TeamLabel
     var scoreLabelA: ScoreLabel
     var scoreMinusButtonA: ScoreSmallButton
     var scorePlusButtonA: ScoreSmallButton
     
     // スコアB
-    var scoreB: Int = 0
+    var teamB: Team
+//    var scoreB: Int = 0
     var teamLabelB: TeamLabel
     var scoreLabelB: ScoreLabel
     var scoreMinusButtonB: ScoreSmallButton
@@ -52,19 +54,15 @@ final class ScoreView: UIView {
     var isFirstFoulB: Bool = true
     
     override init(frame: CGRect) {
+        teamA = Team(name: "", score: 0)
         teamLabelA = TeamLabel()
-        if let teamNameA = userdefaults.string(forKey: Consts.TEAM_NAME_A) {
-            teamLabelA.text = teamNameA
-        } else {
-            teamLabelA.text = "team_name_a".localized
-        }
         
+        teamLabelA.text = teamA.getTeamNameA()
+        
+        teamB = Team(name: "", score: 0)
         teamLabelB = TeamLabel()
-        if let teamNameB = userdefaults.string(forKey: Consts.TEAM_NAME_B) {
-            teamLabelB.text = teamNameB
-        } else {
-            teamLabelB.text = "team_name_b".localized
-        }
+        
+        teamLabelB.text = teamB.getTeamNameB()
         
         scoreLabelA = ScoreLabel()
         scoreLabelB = ScoreLabel()
@@ -145,44 +143,8 @@ final class ScoreView: UIView {
     func checkOrientation4Pad() {
         if isLandscape {
             initPadAttrLandscape()
-        } else {
-            initPadAttrPortrait()
         }
     }
-    
-//    func portrait(frame: CGRect) {
-//
-//        self.frame = frame
-//        print(frame)
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            checkOrientation4Pad()
-//        }
-//
-//        let teamNameY = frame.height*(1/8)
-//        teamLabelA.center = CGPoint(x: frame.width*(1/4),
-//                                    y: teamNameY)
-//
-//        teamLabelB.center = CGPoint(x: frame.width*(3/4),
-//                                    y: teamNameY)
-//
-//        let scoreLabelY = frame.height*(1/2)
-//
-//        scoreLabelA.center = CGPoint(x: frame.width*(1/4),
-//                                     y: scoreLabelY)
-//
-//        scoreLabelB.center = CGPoint(x: frame.width*(3/4),
-//                                     y: scoreLabelY)
-//
-//        let scoreButtonY = frame.height*(7/8)
-//
-//        scoreMinusButtonA.center = CGPoint(x: frame.width*(1/8), y: scoreButtonY)
-//
-//        scorePlusButtonA.center = CGPoint(x: frame.width*(3/8), y: scoreButtonY)
-//
-//        scoreMinusButtonB.center = CGPoint(x: frame.width*(5/8), y: scoreButtonY)
-//
-//        scorePlusButtonB.center = CGPoint(x: frame.width*(7/8), y: scoreButtonY)
-//    }
     
     func landscape(frame: CGRect) {
         
@@ -192,15 +154,19 @@ final class ScoreView: UIView {
             checkOrientation4Pad()
         }
         
-        let teamNameY = frame.height*(2/8)
+        var teamNameY = frame.height*(2/8)
+        var scoreLabelY = frame.height*(7/12)
+        
+        if !userdefaults.bool(forKey: Consts.DISPLAY_FOULCOUNT) {
+            teamNameY = frame.height*(1/8)
+            scoreLabelY = frame.height*(6/12)
+        }
         
         teamLabelA.center = CGPoint(x: frame.width*(3/12),
                                     y: teamNameY)
         
         teamLabelB.center = CGPoint(x: frame.width*(9/12),
                                     y: teamNameY)
-        
-        let scoreLabelY = frame.height*(7/12)
         
         scoreLabelA.center = CGPoint(x: frame.width*(3/12),
                                      y: scoreLabelY)
@@ -218,9 +184,9 @@ final class ScoreView: UIView {
         
         scorePlusButtonB.center = CGPoint(x: frame.width*(10/12), y: scoreButtonY)
         
-        buzzerButton.center = CGPoint(x: frame.width*(1/2), y: scoreButtonY)
+        buzzerButton.center = CGPoint(x: frame.width*(1/24), y: scoreButtonY)
         
-        settingButton.center = CGPoint(x: frame.width*(23/24), y: frame.height*(7/8))
+        settingButton.center = CGPoint(x: frame.width*(23/24), y: scoreButtonY)
         
         possessionImageA.center = CGPoint(x: frame.width*(1/12),
                                           y: teamNameY)
@@ -228,7 +194,12 @@ final class ScoreView: UIView {
         possessionImageB.center = CGPoint(x: frame.width*(11/12),
                                           y: teamNameY)
         
-        let foulCountY = frame.height*(1/8)
+        var foulCountY = frame.height*(1/8)
+        
+        if !userdefaults.bool(forKey: Consts.DISPLAY_FOULCOUNT) {
+            foulCountY -= Consts.FOULCOUT_MOVE_DISTANCE
+        }
+        
         foulCountImageA1.center = CGPoint(x: frame.width*(1/12), y: foulCountY)
         foulCountImageA2.center = CGPoint(x: frame.width*(2/12), y: foulCountY)
         foulCountImageA3.center = CGPoint(x: frame.width*(3/12), y: foulCountY)
@@ -241,11 +212,6 @@ final class ScoreView: UIView {
         foulCountImageB4.center = CGPoint(x: frame.width*(10/12), y: foulCountY)
         foulCountImageB5.center = CGPoint(x: frame.width*(11/12), y: foulCountY)
     }
-
-    func initPadAttrPortrait() {
-        scoreLabelA.initPadAttrPortrait()
-        scoreLabelB.initPadAttrPortrait()
-    }
     
     func initPadAttrLandscape() {
         scoreLabelA.initPadAttrLandscape()
@@ -253,13 +219,15 @@ final class ScoreView: UIView {
     }
     
     func reset() {
-        scoreA = 0
-        scoreLabelA.text = "00"
+        teamA.resetA()
         teamLabelA.text = "team_name_a".localized
+        scoreLabelA.text = "00"
+        userdefaults.set(0, forKey: Consts.TEAM_SCORE_A)
         
-        scoreB = 0
-        scoreLabelB.text = "00"
+        teamB.resetB()
         teamLabelB.text = "team_name_b".localized
+        scoreLabelB.text = "00"
+        userdefaults.set(0, forKey: Consts.TEAM_SCORE_B)
         
         isPossessionA = true
         possessionImageA.image = UIImage(named: "posses-a-active")
@@ -276,6 +244,70 @@ final class ScoreView: UIView {
         foulCountImageB3.image = UIImage(named: "foulcount-inactive")
         foulCountImageB4.image = UIImage(named: "foulcount-inactive")
         foulCountImageB5.image = UIImage(named: "foulcount-inactive")
+        
+        if !userdefaults.bool(forKey: Consts.DISPLAY_FOULCOUNT) {
+            self.showFoulCount()
+            userdefaults.set(true, forKey: Consts.DISPLAY_FOULCOUNT)
+        }
+    }
+    
+    func showFoulCount() {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.foulCountImageA1.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageA2.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageA3.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageA4.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageA5.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB1.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB2.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB3.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB4.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB5.center.y += Consts.FOULCOUT_MOVE_DISTANCE
+        }, completion: nil)
+        
+        let teamLabelY = frame.height*(2/8)
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.teamLabelA.center.y = teamLabelY
+            self.teamLabelB.center.y = teamLabelY
+            self.possessionImageA.center.y = teamLabelY
+            self.possessionImageB.center.y = teamLabelY
+        }, completion: nil)
+        
+        let scoreLabelY = frame.height*(7/12)
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.scoreLabelA.center.y = scoreLabelY
+            self.scoreLabelB.center.y = scoreLabelY
+        }, completion: nil)
+        
+    }
+    
+    func hideFoulCount() {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.foulCountImageA1.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageA2.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageA3.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageA4.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageA5.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB1.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB2.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB3.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB4.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+            self.foulCountImageB5.center.y -= Consts.FOULCOUT_MOVE_DISTANCE
+        }, completion: nil)
+        
+        let teamLabelY = frame.height*(1/8)
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.teamLabelA.center.y = teamLabelY
+            self.teamLabelB.center.y = teamLabelY
+            self.possessionImageA.center.y = teamLabelY
+            self.possessionImageB.center.y = teamLabelY
+        }, completion: nil)
+        
+        let scoreLabelY = frame.height*(6/12)
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.scoreLabelA.center.y = scoreLabelY
+            self.scoreLabelB.center.y = scoreLabelY
+        }, completion: nil)
     }
     
     func togglePossession() {

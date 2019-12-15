@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Scorer
 
 class ScorerUITests: XCTestCase {
     
@@ -26,35 +27,36 @@ class ScorerUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        self.testCommonLabel(id: "teamLabelA", text: "HOME")
-        self.testCommonLabel(id: "teamLabelB", text: "GUEST")
-        self.testCommonLabel(id: "scoreLabelA", text: "00")
-        self.testCommonLabel(id: "scoreLabelB", text: "00")
+    func testInitView() {
         
-        self.testCommonButton(id: "scoreMinusButtonA", imageName: "down-button")
-        self.testCommonButton(id: "scorePlusButtonA", imageName: "up-button")
-        self.testCommonButton(id: "scoreMinusButtonB", imageName: "down-button")
-        self.testCommonButton(id: "scorePlusButtonB", imageName: "up-button")
+        self.setCommonLabel(id: "teamLabelA", text: "HOME")
+        self.setCommonLabel(id: "teamLabelB", text: "GUEST")
+        self.setCommonLabel(id: "scoreLabelA", text: "00")
+        self.setCommonLabel(id: "scoreLabelB", text: "00")
         
-        self.testCommonButton(id: "buzzerButton", imageName: "buzzer-up")
+        self.setCommonButton(id: "scoreMinusButtonA", imageName: "down-button")
+        self.setCommonButton(id: "scorePlusButtonA", imageName: "up-button")
+        self.setCommonButton(id: "scoreMinusButtonB", imageName: "down-button")
+        self.setCommonButton(id: "scorePlusButtonB", imageName: "up-button")
         
-        self.testCommonButton(id: "settingButton", imageName: "setting")
+        self.setCommonButton(id: "buzzerButton", imageName: "buzzer-up")
         
-        self.testCommonImage(id: "possessionImageA", imageName: "posses-a-active")
-        self.testCommonImage(id: "possessionImageB", imageName: "posses-b-inactive")
+        self.setCommonButton(id: "settingButton", imageName: "setting")
         
-        self.testCommonImage(id: "foulCountImageA1", imageName: "foulcount-inactive")
-        self.testCommonImage(id: "foulCountImageA2", imageName: "foulcount-inactive")
-        self.testCommonImage(id: "foulCountImageA3", imageName: "foulcount-inactive")
-        self.testCommonImage(id: "foulCountImageA4", imageName: "foulcount-inactive")
-        self.testCommonImage(id: "foulCountImageA5", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "possessionImageA", imageName: "posses-a-active")
+        self.setCommonImage(id: "possessionImageB", imageName: "posses-b-inactive")
         
-        self.testCommonImage(id: "foulCountImageB1", imageName: "foulcount-inactive")
-        self.testCommonImage(id: "foulCountImageB2", imageName: "foulcount-inactive")
-        self.testCommonImage(id: "foulCountImageB3", imageName: "foulcount-inactive")
-        self.testCommonImage(id: "foulCountImageB4", imageName: "foulcount-inactive")
-        self.testCommonImage(id: "foulCountImageB5", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageA1", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageA2", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageA3", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageA4", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageA5", imageName: "foulcount-inactive")
+        
+        self.setCommonImage(id: "foulCountImageB1", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageB2", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageB3", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageB4", imageName: "foulcount-inactive")
+        self.setCommonImage(id: "foulCountImageB5", imageName: "foulcount-inactive")
     }
 
     func testLaunchPerformance() {
@@ -66,21 +68,21 @@ class ScorerUITests: XCTestCase {
         }
     }
     
-    func testCommonLabel(id: String, text: String) {
+    func setCommonLabel(id: String, text: String) {
         let label = XCUIApplication().buttons[id]
         XCTAssert(label.isEnabled)
         XCTAssert(label.isHittable)
         XCTAssertEqual(label.label, text)
     }
     
-    func testCommonButton(id: String, imageName: String) {
+    func setCommonButton(id: String, imageName: String) {
         let button = XCUIApplication().buttons[id]
         XCTAssert(button.isEnabled)
         XCTAssert(button.isHittable)
 //        XCTAssertTrue(app.images[imageName].exists)
     }
     
-    func testCommonImage(id: String, imageName: String) {
+    func setCommonImage(id: String, imageName: String) {
         let image = XCUIApplication().buttons[id]
 //        XCTAssert(image.isEnabled)
 //        XCTAssert(image.isHittable)

@@ -26,8 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+//        if (userdefaults.string(forKey: Consts.TEAM_NAME_A) == nil) {
+//            userdefaults.set("team_name_a".localized, forKey: Consts.TEAM_NAME_A)
+//        }
+//        
+//        if (userdefaults.string(forKey: Consts.TEAM_NAME_B) == nil) {
+//            userdefaults.set("team_name_b".localized, forKey: Consts.TEAM_NAME_B)
+//        }
+        
         if (userdefaults.object(forKey: Consts.BUZEER_AUTO_BEEP) == nil) {
             userdefaults.set(false, forKey: Consts.BUZEER_AUTO_BEEP)
+        }
+        
+        if (userdefaults.object(forKey: Consts.DISPLAY_FOULCOUNT) == nil) {
+            userdefaults.set(true, forKey: Consts.DISPLAY_FOULCOUNT)
         }
         
         window = UIWindow(frame: UIScreen.main.bounds)

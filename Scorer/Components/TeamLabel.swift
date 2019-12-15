@@ -23,10 +23,8 @@ class TeamLabel: UILabel {
         case .pad:
             initPadAttr()
         default:
-            initPhoneAttr()
+            break
         }
-        
-        
         
     }
     
@@ -35,9 +33,21 @@ class TeamLabel: UILabel {
     }
     
     func initPhoneAttr() {
-        
+        if UIScreen.main.bounds.size.width > 568 { // iPhone SEよりwidthが大きい場合
+            setBig4Phone()
+        } else {
+            setNormal4Phone()
+        }
+    }
+    
+    func setNormal4Phone() {
         self.font = .boldSystemFont(ofSize: 30)
         self.bounds = CGRect(x: 0, y: 0, width: 130, height: 40)
+    }
+    
+    func setBig4Phone() {
+        self.font = .boldSystemFont(ofSize: 40)
+        self.bounds = CGRect(x: 0, y: 0, width: 200, height: 50)
     }
     
     func initPadAttr() {

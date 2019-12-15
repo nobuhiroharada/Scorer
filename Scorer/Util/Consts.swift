@@ -6,7 +6,7 @@
 //  Copyright © 2019 Nobuhiro Harada. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Consts {
     
@@ -15,4 +15,7 @@ struct Consts {
     static let TEAM_NAME_B: String  = "team_name_b"
     static let TEAM_SCORE_A: String = "team_score_a"
     static let TEAM_SCORE_B: String = "team_score_b"
+    static let DISPLAY_FOULCOUNT: String = "foulcount_display"
+    
+    static let FOULCOUT_MOVE_DISTANCE: CGFloat = 200.0
 }

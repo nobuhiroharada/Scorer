@@ -30,10 +30,19 @@
 		E5D0DA692364F1130019274C /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA682364F1130019274C /* SettingButton.swift */; };
 		E5D0DA7723698EB20019274C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA7623698EB20019274C /* UIViewController+.swift */; };
 		E5D0DA82236CB9AD0019274C /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA81236CB9AD0019274C /* Consts.swift */; };
+		E5D0DA84236CFBE80019274C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA83236CFBE80019274C /* Team.swift */; };
+		E5D0DA8C236D8DC40019274C /* ScorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DA8B236D8DC40019274C /* ScorerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		E5D0DA63236382170019274C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5AF7420234FBD620063726B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5AF7427234FBD620063726B;
+			remoteInfo = Scorer;
+		};
+		E5D0DA8E236D8DC50019274C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E5AF7420234FBD620063726B /* Project object */;
 			proxyType = 1;
@@ -76,6 +85,10 @@
 		E5D0DA682364F1130019274C /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		E5D0DA7623698EB20019274C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		E5D0DA81236CB9AD0019274C /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		E5D0DA83236CFBE80019274C /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		E5D0DA89236D8DC40019274C /* ScorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D0DA8B236D8DC40019274C /* ScorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorerTests.swift; sourceTree = "<group>"; };
+		E5D0DA8D236D8DC50019274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +105,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59C587411C9271F4C0EAC4F /* Pods_Scorer_ScorerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0DA86236D8DC40019274C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +134,7 @@
 			children = (
 				E5AF742A234FBD620063726B /* Scorer */,
 				E5D0DA5F236382170019274C /* ScorerUITests */,
+				E5D0DA8A236D8DC40019274C /* ScorerTests */,
 				E5AF7429234FBD620063726B /* Products */,
 				BF1E954D413BFAEA99E7C972 /* Pods */,
 				E8C1399F959DA01F09FE2AEB /* Frameworks */,
@@ -125,6 +146,7 @@
 			children = (
 				E5AF7428234FBD620063726B /* Scorer.app */,
 				E5D0DA5E236382170019274C /* ScorerUITests.xctest */,
+				E5D0DA89236D8DC40019274C /* ScorerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +158,7 @@
 				E5AF742F234FBD620063726B /* MainViewController.swift */,
 				E56A46A52351897C00B127E2 /* SettingViewController.swift */,
 				E5AF743F234FC3A30063726B /* ScoreView.swift */,
+				E5D0DA83236CFBE80019274C /* Team.swift */,
 				E5AF7441234FC3C80063726B /* Components */,
 				E5AF7450234FCAD30063726B /* Extensions */,
 				E5D0DA80236CB9960019274C /* Util */,
@@ -190,6 +213,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		E5D0DA8A236D8DC40019274C /* ScorerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0DA8B236D8DC40019274C /* ScorerTests.swift */,
+				E5D0DA8D236D8DC50019274C /* Info.plist */,
+			);
+			path = ScorerTests;
+			sourceTree = "<group>";
+		};
 		E8C1399F959DA01F09FE2AEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +273,24 @@
 			productReference = E5D0DA5E236382170019274C /* ScorerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E5D0DA88236D8DC40019274C /* ScorerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D0DA90236D8DC50019274C /* Build configuration list for PBXNativeTarget "ScorerTests" */;
+			buildPhases = (
+				E5D0DA85236D8DC40019274C /* Sources */,
+				E5D0DA86236D8DC40019274C /* Frameworks */,
+				E5D0DA87236D8DC40019274C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5D0DA8F236D8DC50019274C /* PBXTargetDependency */,
+			);
+			name = ScorerTests;
+			productName = ScorerTests;
+			productReference = E5D0DA89236D8DC40019274C /* ScorerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -255,6 +305,10 @@
 						CreatedOnToolsVersion = 11.0;
 					};
 					E5D0DA5D236382170019274C = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = E5AF7427234FBD620063726B;
+					};
+					E5D0DA88236D8DC40019274C = {
 						CreatedOnToolsVersion = 11.0;
 						TestTargetID = E5AF7427234FBD620063726B;
 					};
@@ -276,6 +330,7 @@
 			targets = (
 				E5AF7427234FBD620063726B /* Scorer */,
 				E5D0DA5D236382170019274C /* ScorerUITests */,
+				E5D0DA88236D8DC40019274C /* ScorerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -294,6 +349,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E5D0DA5C236382170019274C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0DA87236D8DC40019274C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -400,6 +462,7 @@
 				E5AF745F2350FD930063726B /* FoulCountImageView.swift in Sources */,
 				E5D0DA82236CB9AD0019274C /* Consts.swift in Sources */,
 				E5AF7454234FCB260063726B /* UIImage+.swift in Sources */,
+				E5D0DA84236CFBE80019274C /* Team.swift in Sources */,
 				E5AF7449234FC4F90063726B /* BuzzerButton.swift in Sources */,
 				E5D0DA692364F1130019274C /* SettingButton.swift in Sources */,
 				E5AF7440234FC3A30063726B /* ScoreView.swift in Sources */,
@@ -414,6 +477,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5D0DA85236D8DC40019274C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D0DA8C236D8DC40019274C /* ScorerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -421,6 +492,11 @@
 			isa = PBXTargetDependency;
 			target = E5AF7427234FBD620063726B /* Scorer */;
 			targetProxy = E5D0DA63236382170019274C /* PBXContainerItemProxy */;
+		};
+		E5D0DA8F236D8DC50019274C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5AF7427234FBD620063726B /* Scorer */;
+			targetProxy = E5D0DA8E236D8DC50019274C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -574,7 +650,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.scorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -594,7 +670,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.scorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -642,6 +718,46 @@
 			};
 			name = Release;
 		};
+		E5D0DA91236D8DC50019274C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9QP98K44Z;
+				INFOPLIST_FILE = ScorerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.ScorerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scorer.app/Scorer";
+			};
+			name = Debug;
+		};
+		E5D0DA92236D8DC50019274C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9QP98K44Z;
+				INFOPLIST_FILE = ScorerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.ScorerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scorer.app/Scorer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -668,6 +784,15 @@
 			buildConfigurations = (
 				E5D0DA65236382170019274C /* Debug */,
 				E5D0DA66236382170019274C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5D0DA90236D8DC50019274C /* Build configuration list for PBXNativeTarget "ScorerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D0DA91236D8DC50019274C /* Debug */,
+				E5D0DA92236D8DC50019274C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

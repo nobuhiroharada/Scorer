@@ -15,6 +15,7 @@
 "setting_share" = "シェア";
 "setting_team_name_a" = "チーム名編集（左）";
 "setting_team_name_b" = "チーム名編集（右）";
+"setting_foulcount_display" = "ファウルカウント表示";
 
 // チーム名前
 "team_name_a" = "ホーム";

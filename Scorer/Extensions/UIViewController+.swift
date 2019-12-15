@@ -56,12 +56,12 @@ extension UIViewController {
                         if !textFieldText.isEmpty {
                             if team == Consts.TEAM_NAME_A {
                                 scoreView.scoreLabelA.text = textField.text
-                                scoreView.scoreA = Int(textFieldText)!
+                                scoreView.teamA.score = Int(textFieldText)!
                                 userdefaults.set(textField.text, forKey: Consts.TEAM_SCORE_A)
                             }
                             else if team == Consts.TEAM_NAME_B {
                                 scoreView.scoreLabelB.text = textField.text
-                                scoreView.scoreB = Int(textFieldText)!
+                                scoreView.teamB.score = Int(textFieldText)!
                                 userdefaults.set(textField.text, forKey: Consts.TEAM_SCORE_B)
                             }
                         }
