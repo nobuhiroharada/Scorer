@@ -6,8 +6,8 @@
   Copyright © 2019 Nobuhiro Harada. All rights reserved.
 */
 
-// 設定 - アクションシート
-"setting_title" = "Setting";
+// 設定
+"setting_title" = "Scorer";
 "setting_subtitle" = "auto buzzer, reset setting";
 "setting_auto_buzzer" = "When time up, auto buzzer";
 "setting_reset" = "Reset";
@@ -16,6 +16,18 @@
 "setting_team_name_a" = "Edit team name（left）";
 "setting_team_name_b" = "Edit team name（right）";
 "setting_foulcount_display" = "Display foul count";
+"setting_game_result" = "Game Result";
+"setting_game_history" = "Game History";
+
+// 試合結果
+"game_result_zero" = "There is not game result";
+"game_result_save" = "Save Game Result?";
+"game_result_save_success" = "Saved Game Result";
+"game_result_save_error" = "Error to save Game Result";
+"game_result_delete" = "Delete Game Result?";
+"game_result_delete_success" = "Deleted Game Result";
+"game_result_delete_error" = "Error to delete Game Result";
+
 
 // チーム名前
 "team_name_a" = "HOME";

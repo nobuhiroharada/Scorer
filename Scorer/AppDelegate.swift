@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 let userdefaults = UserDefaults.standard
 
@@ -25,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private(set) lazy var viewController = MainViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        do {
+            _ = try Realm()
+            
+        } catch {
+            print("Error initialising new realm \(error)")
+        }
         
 //        if (userdefaults.string(forKey: Consts.TEAM_NAME_A) == nil) {
 //            userdefaults.set("team_name_a".localized, forKey: Consts.TEAM_NAME_A)

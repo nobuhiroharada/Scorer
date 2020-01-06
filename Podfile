@@ -9,6 +9,7 @@ target 'Scorer' do
 
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
+  pod 'RealmSwift'
 
   target 'ScorerUITests' do
     # Pods for testing

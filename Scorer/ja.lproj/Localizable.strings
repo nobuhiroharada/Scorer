@@ -7,8 +7,8 @@
 */
 
 // 設定 - アクションシート
-"setting_title" = "設定";
-"setting_subtitle" = "自動ブザー設定、リセットを行います。";
+"setting_title" = "Scorer";
+"setting_subtitle" = "自動ブザー設定、リセットを行います";
 "setting_auto_buzzer" = "終了時に自動でブザーを鳴らす";
 "setting_reset" = "リセット";
 "setting_cancel" = "キャンセル";
@@ -16,6 +16,17 @@
 "setting_team_name_a" = "チーム名編集（左）";
 "setting_team_name_b" = "チーム名編集（右）";
 "setting_foulcount_display" = "ファウルカウント表示";
+"setting_game_result" = "試合結果";
+"setting_game_history" = "試合履歴";
+
+// 試合結果
+"game_result_zero" = "試合結果の登録がありません";
+"game_result_save" = "試合結果を保存しますか？";
+"game_result_save_success" = "試合結果を保存しました";
+"game_result_save_error" = "試合結果を保存できませんでした";
+"game_result_delete" = "試合結果を削除しますか?";
+"game_result_delete_success" = "試合結果を削除しました";
+"game_result_delete_error" = "試合結果を削除できませんでした";
 
 // チーム名前
 "team_name_a" = "ホーム";
